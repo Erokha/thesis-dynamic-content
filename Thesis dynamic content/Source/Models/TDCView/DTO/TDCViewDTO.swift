@@ -7,6 +7,8 @@
 
 import Foundation
 
-struct TDCViewDTO: Codable {
+struct TDCViewDTO: Decodable {
+    let id: TDCViewID
     let configuration: TDCViewConfigurationDTO
+    let subviews: [TDCViewDTO]
 }

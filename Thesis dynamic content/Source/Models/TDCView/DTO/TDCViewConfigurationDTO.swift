@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TDCViewConfigurationDTO: Codable {
+struct TDCViewConfigurationDTO: Decodable {
     let color: String?
     let cornerRadius: Int?
 }
