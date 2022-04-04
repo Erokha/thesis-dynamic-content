@@ -12,6 +12,12 @@
 		6BACD31E27FA15D900FFDDC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD31D27FA15D900FFDDC5 /* ViewController.swift */; };
 		6BACD32327FA15DB00FFDDC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BACD32227FA15DB00FFDDC5 /* Assets.xcassets */; };
 		6BACD32627FA15DB00FFDDC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BACD32427FA15DB00FFDDC5 /* LaunchScreen.storyboard */; };
+		6BACD33627FA1C4400FFDDC5 /* TDCViewDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD33527FA1C4400FFDDC5 /* TDCViewDTO.swift */; };
+		6BACD33927FA1CDD00FFDDC5 /* TDCViewConfigurationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD33827FA1CDD00FFDDC5 /* TDCViewConfigurationDTO.swift */; };
+		6BACD33E27FA1E1F00FFDDC5 /* TDCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD33D27FA1E1F00FFDDC5 /* TDCView.swift */; };
+		6BACD34027FA1E3000FFDDC5 /* TDCViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD33F27FA1E3000FFDDC5 /* TDCViewConfiguration.swift */; };
+		6BACD34227FA1E8B00FFDDC5 /* TDCViewUIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD34127FA1E8B00FFDDC5 /* TDCViewUIExtensions.swift */; };
+		6BACD34527FA218800FFDDC5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD34427FA218800FFDDC5 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		6BACD32227FA15DB00FFDDC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BACD32527FA15DB00FFDDC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BACD32727FA15DB00FFDDC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BACD33527FA1C4400FFDDC5 /* TDCViewDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCViewDTO.swift; sourceTree = "<group>"; };
+		6BACD33827FA1CDD00FFDDC5 /* TDCViewConfigurationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCViewConfigurationDTO.swift; sourceTree = "<group>"; };
+		6BACD33D27FA1E1F00FFDDC5 /* TDCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCView.swift; sourceTree = "<group>"; };
+		6BACD33F27FA1E3000FFDDC5 /* TDCViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCViewConfiguration.swift; sourceTree = "<group>"; };
+		6BACD34127FA1E8B00FFDDC5 /* TDCViewUIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCViewUIExtensions.swift; sourceTree = "<group>"; };
+		6BACD34427FA218800FFDDC5 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				6BACD32D27FA18F100FFDDC5 /* Application */,
+				6BACD33327FA1C3100FFDDC5 /* Source */,
 				6BACD31D27FA15D900FFDDC5 /* ViewController.swift */,
 			);
 			path = "Thesis dynamic content";
@@ -70,6 +83,67 @@
 				6BACD32727FA15DB00FFDDC5 /* Info.plist */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		6BACD33327FA1C3100FFDDC5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				6BACD33427FA1C3900FFDDC5 /* Models */,
+				6BACD34327FA217D00FFDDC5 /* Extensions */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		6BACD33427FA1C3900FFDDC5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6BACD34627FBAAC800FFDDC5 /* TDCConstaint */,
+				6BACD33727FA1C7A00FFDDC5 /* TDCView */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6BACD33727FA1C7A00FFDDC5 /* TDCView */ = {
+			isa = PBXGroup;
+			children = (
+				6BACD33B27FA1D1B00FFDDC5 /* Domain */,
+				6BACD33A27FA1D1500FFDDC5 /* DTO */,
+				6BACD34127FA1E8B00FFDDC5 /* TDCViewUIExtensions.swift */,
+			);
+			path = TDCView;
+			sourceTree = "<group>";
+		};
+		6BACD33A27FA1D1500FFDDC5 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				6BACD33527FA1C4400FFDDC5 /* TDCViewDTO.swift */,
+				6BACD33827FA1CDD00FFDDC5 /* TDCViewConfigurationDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		6BACD33B27FA1D1B00FFDDC5 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				6BACD33D27FA1E1F00FFDDC5 /* TDCView.swift */,
+				6BACD33F27FA1E3000FFDDC5 /* TDCViewConfiguration.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		6BACD34327FA217D00FFDDC5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6BACD34427FA218800FFDDC5 /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6BACD34627FBAAC800FFDDC5 /* TDCConstaint */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TDCConstaint;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,9 +216,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BACD34227FA1E8B00FFDDC5 /* TDCViewUIExtensions.swift in Sources */,
+				6BACD33E27FA1E1F00FFDDC5 /* TDCView.swift in Sources */,
 				6BACD31E27FA15D900FFDDC5 /* ViewController.swift in Sources */,
 				6BACD31A27FA15D900FFDDC5 /* AppDelegate.swift in Sources */,
+				6BACD34527FA218800FFDDC5 /* UIColor.swift in Sources */,
+				6BACD33627FA1C4400FFDDC5 /* TDCViewDTO.swift in Sources */,
 				6BACD31C27FA15D900FFDDC5 /* SceneDelegate.swift in Sources */,
+				6BACD33927FA1CDD00FFDDC5 /* TDCViewConfigurationDTO.swift in Sources */,
+				6BACD34027FA1E3000FFDDC5 /* TDCViewConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
