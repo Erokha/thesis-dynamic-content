@@ -22,60 +22,76 @@ struct TDCEdgeConstaintDTO: Decodable {
         case unknown
     }
     
-    struct RelativeConstaintData: Decodable {
+    struct RelativeConstaintData {
         let id: TDCViewID?
         let edge: EdgeType
         let constant: Float?
-        
-        private enum CodingKeys: String, CodingKey {
-            case id
-            case edge
-            case constant
-        }
-        
-        init(from decoder: Decoder) throws {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            self.id = try? container.decode(String.self, forKey: .id)
-            let rawEdge = try container.decode(String.self, forKey: .edge)
-            self.edge = EdgeType(rawValue: rawEdge) ?? .unknown
-            self.constant = try? container.decode(Float.self, forKey: .constant)
-        }
     }
     
     private enum CodingKeys: String, CodingKey {
-        case valueType = "value_type"
         case edge
+        case value
     }
 }
 
 extension TDCEdgeConstaintDTO {
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        let rawEdge = try container.decode(String.self, forKey: .edge)
+        let edge = EdgeType(rawValue: rawEdge) ?? .unknown
+        let value = try container.decode(ConstaintValue.self, forKey: .value)
+        
+        self = .init(edge: edge, value: value)
+    }
+}
+
+extension TDCEdgeConstaintDTO.ConstaintValue: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case type
+    }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        let valueType = try container.decode(String.self, forKey: .valueType)
-        let rawEdge = try container.decode(String.self, forKey: .edge)
-        let edge = EdgeType(rawValue: rawEdge) ?? .unknown
+        let valueType = try container.decode(String.self, forKey: .type)
         
         switch valueType {
         case "relative":
-            let relativeData = try RelativeConstaintData(from: decoder)
-            self = .init(edge: edge, value: .relative(relativeData))
+            let relativeData = try TDCEdgeConstaintDTO.RelativeConstaintData(from: decoder)
+            self = .relative(relativeData)
         default:
-            self = .init(edge: edge, value: .unknown)
+            self = .unknown
         }
     }
 }
 
+extension TDCEdgeConstaintDTO.RelativeConstaintData {
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case edge
+        case constant
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.id = try? container.decode(String.self, forKey: .id)
+        let rawEdge = try container.decode(String.self, forKey: .edge)
+        self.edge = TDCEdgeConstaintDTO.EdgeType(rawValue: rawEdge) ?? .unknown
+        self.constant = try? container.decode(Float.self, forKey: .constant)
+    }
+}
+
 /*
- {
-    "type": "edge",
-    "edge": "top"
-    "value-type": "relative"
-    "id": "some_view_id"
-    "edge": "bottom"
-    "constant": 5
- }
- 
+    {
+        "type": "edge",
+        "edge": "top",
+        "value": {
+            "type": "relative",
+            "id": "some_view_id",
+            "edge": "bottom",
+            "constant": 5
+        }
+    }
 */

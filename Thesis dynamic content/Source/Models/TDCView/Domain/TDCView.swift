@@ -15,6 +15,7 @@ class TDCView {
     // MARK: - Public properties
     let id: TDCViewID
     let subviews: [TDCView]
+    var constraints: [TDCConstaintResolvable]
     weak var superview: TDCView?
     
     lazy var UIView: UIView = {
@@ -35,7 +36,6 @@ class TDCView {
     
     // MARK: - Private properties
     private let configuration: TDCViewConfiguration
-    private var constraints: [TDCConstaintResolvable]
     
     //MARK: - Init
     init(from dto: TDCViewDTO) {

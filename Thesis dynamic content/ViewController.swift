@@ -18,6 +18,10 @@ final class InitialViewController: UIViewController {
         view.addSubview(tdcView.UIView)
         tdcView.applyConstraints()
         
+        DispatchQueue.global().async { [weak self] in
+            self?.test()
+        }
+        
     }
     
     private func makeUIView() -> TDCView {
@@ -59,6 +63,17 @@ final class InitialViewController: UIViewController {
             ),
         ]
         return view
+    }
+    
+    private func test() {
+        LayoutRequestService().requestHardcodeLayout() { (response) in
+            switch response {
+            case .success(let data):
+                print(data)
+            case .failure:
+                print("error")
+            }
+        }
     }
 
 

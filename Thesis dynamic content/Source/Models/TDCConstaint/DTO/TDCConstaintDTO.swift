@@ -31,15 +31,12 @@ extension TDCConstraintDTO {
         let type = try container.decode(String.self, forKey: .type)
         switch type {
         case ConstraintType.edge.rawValue:
-            //TODO: - TDCEdgeConstaintDTO
             let edge = try TDCEdgeConstaintDTO(from: decoder)
             self = .edge(edge)
         case ConstraintType.side.rawValue:
-            //TODO: - TDCSideConstaintDTO
             let side = try TDCSideConstaintDTO(from: decoder)
             self = .side(side)
         case ConstraintType.size.rawValue:
-            //TODO: - TDCSizeConstaintDTO
             let size = try TDCSizeConstaintDTO(from: decoder)
             self = .size(size)
         default:

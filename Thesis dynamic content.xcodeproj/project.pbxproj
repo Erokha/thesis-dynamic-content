@@ -28,6 +28,8 @@
 		6BACD35B27FBB68E00FFDDC5 /* TDCSideConstaintDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD35A27FBB68E00FFDDC5 /* TDCSideConstaintDTO.swift */; };
 		6BACD35D27FBB69800FFDDC5 /* TDCSizeConstaintDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD35C27FBB69700FFDDC5 /* TDCSizeConstaintDTO.swift */; };
 		6BC526B527FD18B70019BE5D /* TDCConstraintConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC526B427FD18B70019BE5D /* TDCConstraintConverter.swift */; };
+		6BC526B827FD24850019BE5D /* LayoutRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC526B727FD24850019BE5D /* LayoutRequestService.swift */; };
+		6BC526BB27FD25100019BE5D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6BC526BA27FD25100019BE5D /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,7 @@
 		6BACD35A27FBB68E00FFDDC5 /* TDCSideConstaintDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCSideConstaintDTO.swift; sourceTree = "<group>"; };
 		6BACD35C27FBB69700FFDDC5 /* TDCSizeConstaintDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCSizeConstaintDTO.swift; sourceTree = "<group>"; };
 		6BC526B427FD18B70019BE5D /* TDCConstraintConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCConstraintConverter.swift; sourceTree = "<group>"; };
+		6BC526B727FD24850019BE5D /* LayoutRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutRequestService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BC526BB27FD25100019BE5D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +112,7 @@
 		6BACD33327FA1C3100FFDDC5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				6BC526B627FD24680019BE5D /* Services */,
 				6BACD33427FA1C3900FFDDC5 /* Models */,
 				6BACD34327FA217D00FFDDC5 /* Extensions */,
 			);
@@ -163,8 +168,8 @@
 		6BACD34627FBAAC800FFDDC5 /* TDCConstaint */ = {
 			isa = PBXGroup;
 			children = (
-				6BC526B227FD18910019BE5D /* Converters */,
 				6BACD34F27FBACF200FFDDC5 /* TDCConstaint+Resolvable.swift */,
+				6BC526B227FD18910019BE5D /* Converters */,
 				6BACD34827FBAAFC00FFDDC5 /* Domain */,
 				6BACD34727FBAAF600FFDDC5 /* DTO */,
 			);
@@ -208,6 +213,14 @@
 			path = Converters;
 			sourceTree = "<group>";
 		};
+		6BC526B627FD24680019BE5D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6BC526B727FD24850019BE5D /* LayoutRequestService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -224,6 +237,9 @@
 			dependencies = (
 			);
 			name = "Thesis dynamic content";
+			packageProductDependencies = (
+				6BC526BA27FD25100019BE5D /* Alamofire */,
+			);
 			productName = "Thesis dynamic content";
 			productReference = 6BACD31627FA15D900FFDDC5 /* Thesis dynamic content.app */;
 			productType = "com.apple.product-type.application";
@@ -252,6 +268,9 @@
 				Base,
 			);
 			mainGroup = 6BACD30D27FA15D900FFDDC5;
+			packageReferences = (
+				6BC526B927FD25100019BE5D /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 6BACD31727FA15D900FFDDC5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -291,6 +310,7 @@
 				6BACD35227FBB05300FFDDC5 /* TDCView+ConstaintsResolver.swift in Sources */,
 				6BACD33627FA1C4400FFDDC5 /* TDCViewDTO.swift in Sources */,
 				6BC526B527FD18B70019BE5D /* TDCConstraintConverter.swift in Sources */,
+				6BC526B827FD24850019BE5D /* LayoutRequestService.swift in Sources */,
 				6BACD34E27FBAC7E00FFDDC5 /* TDCSideConstaint.swift in Sources */,
 				6BACD31C27FA15D900FFDDC5 /* SceneDelegate.swift in Sources */,
 				6BACD33927FA1CDD00FFDDC5 /* TDCViewConfigurationDTO.swift in Sources */,
@@ -506,6 +526,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6BC526B927FD25100019BE5D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6BC526BA27FD25100019BE5D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6BC526B927FD25100019BE5D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6BACD30E27FA15D900FFDDC5 /* Project object */;
 }
