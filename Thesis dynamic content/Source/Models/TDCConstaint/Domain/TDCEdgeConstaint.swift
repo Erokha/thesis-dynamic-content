@@ -9,21 +9,21 @@ import Foundation
 import UIKit
 
 struct TDCEdgeConstaint {
-    let edge: ConstaintEdge
-    let value: ConstaintEdge
+    let edge: ConstaintType
+    let value: ConstaintValue
     
-    enum ConstaintEdge {
+    enum ConstaintType {
         case topEdge
         case bottomEdge
     }
     
     enum ConstaintValue {
-        case absoulte(Float)
+        case relative(RelativeConstaintData)
     }
     
     struct RelativeConstaintData {
-        let id: TDCViewID
-        let edge: ConstaintEdge
+        let id: TDCViewID?
+        let edge: ConstaintType
         let constant: Float?
     }
 }
@@ -34,4 +34,3 @@ extension TDCEdgeConstaint: TDCConstaintResolvable {
         resolver.resolve(edgeConstaint: self)
     }
 }
-

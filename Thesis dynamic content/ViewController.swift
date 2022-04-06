@@ -16,12 +16,6 @@ final class InitialViewController: UIViewController {
         
         let tdcView = makeUIView()
         view.addSubview(tdcView.UIView)
-        NSLayoutConstraint.activate([
-//            uiview.heightAnchor.constraint(equalToConstant: 50),
-//            uiview.widthAnchor.constraint(equalToConstant: 50),
-            tdcView.UIView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            tdcView.UIView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
         tdcView.applyConstraints()
         
     }
@@ -35,8 +29,34 @@ final class InitialViewController: UIViewController {
         
         let view = TDCView(from: viewDTO)
         view.constraints = [
-            TDCSizeConstaint(type: .width, value: .absoulte(120)),
-            TDCSizeConstaint(type: .height, value: .absoulte(120))
+            TDCSizeConstaint(
+                type: .width,
+                value: .absoulte(120)
+            ),
+            TDCSizeConstaint(
+                type: .height,
+                value: .absoulte(120)
+            ),
+            TDCSideConstaint(
+                side: .ledftSide,
+                value: .relative(
+                    TDCSideConstaint.RelativeConstaintData(
+                        id: nil,
+                        side: .ledftSide,
+                        constant: 50
+                    )
+                )
+            ),
+            TDCEdgeConstaint(
+                edge: .topEdge,
+                value: .relative(
+                    TDCEdgeConstaint.RelativeConstaintData(
+                        id: nil,
+                        edge: .topEdge,
+                        constant: 50
+                    )
+                )
+            ),
         ]
         return view
     }

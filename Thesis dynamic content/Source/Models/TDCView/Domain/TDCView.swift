@@ -11,17 +11,11 @@ import UIKit
 public typealias TDCViewID = String
 
 class TDCView {
-    init(from dto: TDCViewDTO) {
-        self.id = dto.id
-        self.configuration = TDCViewConfiguration.init(from: dto.configuration)
-        self.constraints = []
-        self.subviews = dto.subviews.map { TDCView(from: $0) }
-    }
-    
+
+    // MARK: - Public properties
     let id: TDCViewID
-    let configuration: TDCViewConfiguration
-    var constraints: [TDCConstaintResolvable]
     let subviews: [TDCView]
+    weak var superview: TDCView?
     
     lazy var UIView: UIView = {
         let view = UIKit.UIView()
@@ -39,7 +33,32 @@ class TDCView {
         return view
     }()
     
+    // MARK: - Private properties
+    private let configuration: TDCViewConfiguration
+    private var constraints: [TDCConstaintResolvable]
+    
+    //MARK: - Init
+    init(from dto: TDCViewDTO) {
+        self.id = dto.id
+        self.configuration = TDCViewConfiguration.init(from: dto.configuration)
+        self.constraints = []
+        self.subviews = dto.subviews.map { TDCView(from: $0) }
+        self.subviews.forEach { $0.superview = self }
+    }
+
+}
+
+extension TDCView {
     func applyConstraints() {
         constraints.forEach { $0.resolve(using: self) }
+    }
+    
+    var sameLevelViews: [TDCView] {
+        guard let superview = superview else {
+            return []
+        }
+        return superview
+            .subviews
+            .filter { $0.id != self.id }
     }
 }

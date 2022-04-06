@@ -8,7 +8,7 @@
 import Foundation
 
 struct TDCSideConstaint {
-    let type: ConstaintType
+    let side: ConstaintType
     let value: ConstaintValue
     
     enum ConstaintType {
@@ -17,7 +17,13 @@ struct TDCSideConstaint {
     }
     
     enum ConstaintValue {
-        case absoulte(Float)
+        case relative(RelativeConstaintData)
+    }
+    
+    struct RelativeConstaintData {
+        let id: TDCViewID?
+        let side: ConstaintType
+        let constant: Float?
     }
 }
 

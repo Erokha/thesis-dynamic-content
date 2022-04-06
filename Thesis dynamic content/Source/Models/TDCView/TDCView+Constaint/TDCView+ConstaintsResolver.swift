@@ -10,7 +10,12 @@ import UIKit
 
 extension TDCView: TDCConstaintResolver {
     func resolve(edgeConstaint: TDCEdgeConstaint) {
-        //TODO: Implement apply edgeConstaint
+        switch edgeConstaint.edge {
+        case .bottomEdge:
+            applyBottomConstaint(edgeConstaint)
+        case .topEdge:
+            applyTopConstraint(edgeConstaint)
+        }
         return
     }
     
@@ -24,7 +29,12 @@ extension TDCView: TDCConstaintResolver {
     }
     
     func resolve(sideConstaint: TDCSideConstaint) {
-        //TODO: Implement apply sideConstaint
+        switch sideConstaint.side {
+        case .ledftSide:
+            applyLeftConstraint(sideConstaint)
+        case .rightSide:
+            applyRightConstraint(sideConstaint)
+        }
         return
     }
 }
@@ -52,5 +62,141 @@ extension TDCView {
     }
 }
 
+// MARK: - TDCView + Edge
+extension TDCView {
+    private func applyTopConstraint(_ constaint: TDCEdgeConstaint) {
+        switch constaint.value {
+        case .relative(let relativeData):
+            if let _ = relativeData.id {
+                applyRelativeViewTopConstraint(relativeData)
+            } else {
+                applySuperviewTopConstraint(relativeData)
+            }
+        }
+    }
+    
+    private func applySuperviewTopConstraint(_ constaint: TDCEdgeConstaint.RelativeConstaintData) {
+        guard let superView = self.UIView.superview else {
+            return
+        }
+        switch constaint.edge {
+        case .topEdge:
+            self.UIView
+                .topAnchor
+                .constraint(equalTo: superView.topAnchor, constant: constaint.constant.flatMap { CGFloat($0) } ?? 0)
+                .isActive = true
+        case .bottomEdge:
+            self.UIView
+                .topAnchor
+                .constraint(equalTo: superView.bottomAnchor, constant: constaint.constant.flatMap { CGFloat($0) } ?? 0)
+                .isActive = true
+        }
+    }
+    
+    private func applyRelativeViewTopConstraint(_ constaint: TDCEdgeConstaint.RelativeConstaintData) {
+        //TODO: Implement apply applyRelativeViewTopConstraint with searching view by id
+    }
+    
+    private func applyBottomConstaint(_ constaint: TDCEdgeConstaint) {
+        switch constaint.value {
+        case .relative(let relativeData):
+            if let _ = relativeData.id {
+                applyRelativeViewBottomConstraint(relativeData)
+            } else {
+                applySuperviewBottomConstraint(relativeData)
+            }
+        }
+    }
+    
+    private func applySuperviewBottomConstraint(_ constaint: TDCEdgeConstaint.RelativeConstaintData) {
+        guard let superView = self.UIView.superview else {
+            return
+        }
+        switch constaint.edge {
+        case .topEdge:
+            self.UIView
+                .bottomAnchor
+                .constraint(equalTo: superView.topAnchor, constant: constaint.constant.flatMap { CGFloat($0) } ?? 0)
+                .isActive = true
+        case .bottomEdge:
+            self.UIView
+                .bottomAnchor
+                .constraint(equalTo: superView.bottomAnchor, constant: constaint.constant.flatMap { CGFloat($0) } ?? 0)
+                .isActive = true
+        }
+        
+    }
+    
+    private func applyRelativeViewBottomConstraint(_ constaint: TDCEdgeConstaint.RelativeConstaintData) {
+        //TODO: Implement apply applyRelativeViewBottomConstraint with searching view by id
+    }
+}
 
-
+// MARK: - TDCView + Side
+extension TDCView {
+    private func applyLeftConstraint(_ constaint: TDCSideConstaint) {
+        switch constaint.value {
+        case .relative(let relativeData):
+            if let _ = relativeData.id {
+                applyRelativeViewLeftConstraint(relativeData)
+            } else {
+                applySuperviewLeftConstraint(relativeData)
+            }
+        }
+    }
+    
+    private func applySuperviewLeftConstraint(_ relative: TDCSideConstaint.RelativeConstaintData) {
+        guard let superView = self.UIView.superview else {
+            return
+        }
+        switch relative.side {
+        case .ledftSide:
+            self.UIView
+                .leftAnchor
+                .constraint(equalTo: superView.leftAnchor, constant: relative.constant.flatMap { CGFloat($0) } ?? 0)
+                .isActive = true
+        case .rightSide:
+            self.UIView
+                .leftAnchor
+                .constraint(equalTo: superView.rightAnchor, constant: relative.constant.flatMap { CGFloat($0) } ?? 0)
+                .isActive = true
+        }
+    }
+    
+    private func applyRelativeViewLeftConstraint(_ relative: TDCSideConstaint.RelativeConstaintData) {
+        //TODO: Implement apply applyRelativeViewLeftConstraint with searching view by id
+    }
+    
+    private func applyRightConstraint(_ constaint: TDCSideConstaint) {
+        switch constaint.value {
+        case .relative(let relativeData):
+            if let _ = relativeData.id {
+                applyRelativeViewRightConstraint(relativeData)
+            } else {
+                applySuperviewRightConstraint(relativeData)
+            }
+        }
+    }
+    
+    private func applySuperviewRightConstraint(_ relative: TDCSideConstaint.RelativeConstaintData) {
+        guard let superView = self.UIView.superview else {
+            return
+        }
+        switch relative.side {
+        case .ledftSide:
+            self.UIView
+                .rightAnchor
+                .constraint(equalTo: superView.leftAnchor, constant: relative.constant.flatMap { CGFloat($0) } ?? 0)
+                .isActive = true
+        case .rightSide:
+            self.UIView
+                .rightAnchor
+                .constraint(equalTo: superView.rightAnchor, constant: relative.constant.flatMap { CGFloat($0) } ?? 0)
+                .isActive = true
+        }
+    }
+    
+    private func applyRelativeViewRightConstraint(_ relative: TDCSideConstaint.RelativeConstaintData) {
+        //TODO: Implement apply applyRelativeViewRightConstraint with searching view by id
+    }
+}
