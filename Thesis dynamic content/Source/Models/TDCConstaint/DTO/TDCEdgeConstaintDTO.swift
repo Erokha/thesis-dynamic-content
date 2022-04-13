@@ -1,5 +1,5 @@
 //
-//  TDCEdgeConstaintDTO.swift
+//  TDCEdgeConstraintDTO.swift
 //  Thesis dynamic content
 //
 //  Created by erokha on 4/5/22.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct TDCEdgeConstaintDTO: Decodable {
+struct TDCEdgeConstraintDTO: Decodable {
     let edge: EdgeType
-    let value: ConstaintValue
+    let value: ConstraintValue
     
-    enum ConstaintValue {
-        case relative(RelativeConstaintData)
+    enum ConstraintValue {
+        case relative(RelativeConstraintData)
         case unknown
     }
     
@@ -22,7 +22,7 @@ struct TDCEdgeConstaintDTO: Decodable {
         case unknown
     }
     
-    struct RelativeConstaintData {
+    struct RelativeConstraintData {
         let id: TDCViewID?
         let edge: EdgeType
         let constant: Float?
@@ -34,20 +34,20 @@ struct TDCEdgeConstaintDTO: Decodable {
     }
 }
 
-extension TDCEdgeConstaintDTO {
+extension TDCEdgeConstraintDTO {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         let rawEdge = try container.decode(String.self, forKey: .edge)
         let edge = EdgeType(rawValue: rawEdge) ?? .unknown
-        let value = try container.decode(ConstaintValue.self, forKey: .value)
+        let value = try container.decode(ConstraintValue.self, forKey: .value)
         
         self = .init(edge: edge, value: value)
     }
 }
 
-extension TDCEdgeConstaintDTO.ConstaintValue: Decodable {
+extension TDCEdgeConstraintDTO.ConstraintValue: Decodable {
     private enum CodingKeys: String, CodingKey {
         case type
     }
@@ -58,7 +58,7 @@ extension TDCEdgeConstaintDTO.ConstaintValue: Decodable {
         
         switch valueType {
         case "relative":
-            let relativeData = try TDCEdgeConstaintDTO.RelativeConstaintData(from: decoder)
+            let relativeData = try TDCEdgeConstraintDTO.RelativeConstraintData(from: decoder)
             self = .relative(relativeData)
         default:
             self = .unknown
@@ -66,7 +66,7 @@ extension TDCEdgeConstaintDTO.ConstaintValue: Decodable {
     }
 }
 
-extension TDCEdgeConstaintDTO.RelativeConstaintData {
+extension TDCEdgeConstraintDTO.RelativeConstraintData {
     private enum CodingKeys: String, CodingKey {
         case id
         case edge
@@ -78,7 +78,7 @@ extension TDCEdgeConstaintDTO.RelativeConstaintData {
         
         self.id = try? container.decode(String.self, forKey: .id)
         let rawEdge = try container.decode(String.self, forKey: .edge)
-        self.edge = TDCEdgeConstaintDTO.EdgeType(rawValue: rawEdge) ?? .unknown
+        self.edge = TDCEdgeConstraintDTO.EdgeType(rawValue: rawEdge) ?? .unknown
         self.constant = try? container.decode(Float.self, forKey: .constant)
     }
 }

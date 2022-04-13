@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct TDCSizeConstaintDTO: Decodable {
+struct TDCSizeConstraintDTO: Decodable {
     let type: SizeType
-    let value: ConstaintValue
+    let value: ConstraintValue
     
-    enum ConstaintValue {
-        case absoulte(AbsoluteConstaintData)
+    enum ConstraintValue {
+        case absoulte(AbsoluteConstraintData)
         case unknown
     }
     
@@ -22,7 +22,7 @@ struct TDCSizeConstaintDTO: Decodable {
         case unknown
     }
     
-    struct AbsoluteConstaintData: Decodable {
+    struct AbsoluteConstraintData: Decodable {
         let value: Float
     }
     
@@ -32,20 +32,20 @@ struct TDCSizeConstaintDTO: Decodable {
     }
 }
 
-extension TDCSizeConstaintDTO {
+extension TDCSizeConstraintDTO {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         let rawType = try container.decode(String.self, forKey: .sizeType)
         let type = SizeType(rawValue: rawType) ?? .unknown
-        let value = try container.decode(ConstaintValue.self, forKey: .value)
+        let value = try container.decode(ConstraintValue.self, forKey: .value)
         
         self = .init(type: type, value: value)
     }
 }
 
-extension TDCSizeConstaintDTO.ConstaintValue: Decodable {
+extension TDCSizeConstraintDTO.ConstraintValue: Decodable {
     private enum CodingKeys: String, CodingKey {
         case type
     }
@@ -56,7 +56,7 @@ extension TDCSizeConstaintDTO.ConstaintValue: Decodable {
         
         switch valueType {
         case "absolute":
-            let absoulteData = try TDCSizeConstaintDTO.AbsoluteConstaintData(from: decoder)
+            let absoulteData = try TDCSizeConstraintDTO.AbsoluteConstraintData(from: decoder)
             self = .absoulte(absoulteData)
         default:
             self = .unknown

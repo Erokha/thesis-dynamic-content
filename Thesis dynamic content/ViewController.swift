@@ -8,74 +8,28 @@
 import UIKit
 
 final class InitialViewController: UIViewController {
+    
+    private var tdcView: TDCView? {
+        didSet {
+            tdcView?.layout(on: view)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-        
-        
-        let tdcView = makeUIView()
-        view.addSubview(tdcView.UIView)
-        tdcView.applyConstraints()
-        
-        DispatchQueue.global().async { [weak self] in
-            self?.test()
-        }
-        
+        DispatchQueue.global().async {[weak self] in self?.requestView() }
     }
     
-    private func makeUIView() -> TDCView {
-        let configurationDTO = TDCViewConfigurationDTO(
-            color: "#FFFF66",
-            cornerRadius: 5
-        )
-        let viewDTO = TDCViewDTO(id: "id", configuration: configurationDTO, subviews: [])
-        
-        let view = TDCView(from: viewDTO)
-        view.constraints = [
-            TDCSizeConstaint(
-                type: .width,
-                value: .absoulte(120)
-            ),
-            TDCSizeConstaint(
-                type: .height,
-                value: .absoulte(120)
-            ),
-            TDCSideConstaint(
-                side: .ledftSide,
-                value: .relative(
-                    TDCSideConstaint.RelativeConstaintData(
-                        id: nil,
-                        side: .ledftSide,
-                        constant: 50
-                    )
-                )
-            ),
-            TDCEdgeConstaint(
-                edge: .topEdge,
-                value: .relative(
-                    TDCEdgeConstaint.RelativeConstaintData(
-                        id: nil,
-                        edge: .topEdge,
-                        constant: 50
-                    )
-                )
-            ),
-        ]
-        return view
-    }
-    
-    private func test() {
-        LayoutRequestService().requestHardcodeLayout() { (response) in
+    private func requestView() {
+        LayoutRequestService().requestHardcodeLayout { (response) in
             switch response {
             case .success(let data):
-                print(data)
+                let view = TDCView(from: data)
+                self.tdcView = view
             case .failure:
                 print("error")
             }
         }
     }
 
-
 }
-

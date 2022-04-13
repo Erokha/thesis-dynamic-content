@@ -1,5 +1,5 @@
 //
-//  TDCConstaintDTO.swift
+//  TDCConstraintDTO.swift
 //  Thesis dynamic content
 //
 //  Created by erokha on 4/5/22.
@@ -9,9 +9,9 @@ import Foundation
 
 enum TDCConstraintDTO: Decodable {
     
-    case edge(TDCEdgeConstaintDTO)
-    case side(TDCSideConstaintDTO)
-    case size(TDCSizeConstaintDTO)
+    case edge(TDCEdgeConstraintDTO)
+    case side(TDCSideConstraintDTO)
+    case size(TDCSizeConstraintDTO)
     case unknown
     
     private enum CodingKeys: String, CodingKey {
@@ -31,13 +31,13 @@ extension TDCConstraintDTO {
         let type = try container.decode(String.self, forKey: .type)
         switch type {
         case ConstraintType.edge.rawValue:
-            let edge = try TDCEdgeConstaintDTO(from: decoder)
+            let edge = try TDCEdgeConstraintDTO(from: decoder)
             self = .edge(edge)
         case ConstraintType.side.rawValue:
-            let side = try TDCSideConstaintDTO(from: decoder)
+            let side = try TDCSideConstraintDTO(from: decoder)
             self = .side(side)
         case ConstraintType.size.rawValue:
-            let size = try TDCSizeConstaintDTO(from: decoder)
+            let size = try TDCSizeConstraintDTO(from: decoder)
             self = .size(size)
         default:
             self = .unknown

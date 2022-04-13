@@ -11,4 +11,5 @@ struct TDCViewDTO: Decodable {
     let id: TDCViewID
     let configuration: TDCViewConfigurationDTO
     let subviews: [TDCViewDTO]
+    let constraints: [TDCConstraintDTO]
 }

@@ -1,5 +1,5 @@
 //
-//  TDCView+Constaints.swift
+//  TDCView+Constraints.swift
 //  Thesis dynamic content
 //
 //  Created by erokha on 4/5/22.
@@ -8,41 +8,52 @@
 import Foundation
 import UIKit
 
-extension TDCView: TDCConstaintResolver {
-    func resolve(edgeConstaint: TDCEdgeConstaint) {
-        switch edgeConstaint.edge {
+extension TDCView {
+    func apply(constraint: TDCConstraint) {
+        switch constraint {
+        case .edge(let payload):
+            apply(edgeConstraint: payload)
+        case .side(let payload):
+            apply(sideConstraint: payload)
+        case .size(let payload):
+            apply(sizeConstraint: payload)
+        }
+    }
+    
+    private func apply(edgeConstraint: TDCEdgeConstraint) {
+        switch edgeConstraint.edge {
         case .bottomEdge:
-            applyBottomConstaint(edgeConstaint)
+            applyBottomConstraint(edgeConstraint)
         case .topEdge:
-            applyTopConstraint(edgeConstaint)
+            applyTopConstraint(edgeConstraint)
         }
         return
     }
     
-    func resolve(sizeConstaint: TDCSizeConstaint) {
-        switch sizeConstaint.type {
+    private func apply(sizeConstraint: TDCSizeConstraint) {
+        switch sizeConstraint.type {
         case .width:
-            applyWidthConstaint(sizeConstaint)
+            applyWidthConstraint(sizeConstraint)
         case .height:
-            applyHeightConstaint(sizeConstaint)
+            applyHeightConstraint(sizeConstraint)
         }
     }
     
-    func resolve(sideConstaint: TDCSideConstaint) {
-        switch sideConstaint.side {
+    private func apply(sideConstraint: TDCSideConstraint) {
+        switch sideConstraint.side {
         case .ledftSide:
-            applyLeftConstraint(sideConstaint)
+            applyLeftConstraint(sideConstraint)
         case .rightSide:
-            applyRightConstraint(sideConstaint)
+            applyRightConstraint(sideConstraint)
         }
         return
     }
 }
 
-// MARK: - TDCView + SizeConstaint
+// MARK: - TDCView + SizeConstraint
 extension TDCView {
-    private func applyHeightConstaint(_ constaint: TDCSizeConstaint) {
-        switch constaint.value {
+    private func applyHeightConstraint(_ constraint: TDCSizeConstraint) {
+        switch constraint.value {
         case .absoulte(let value):
             self.UIView
                 .heightAnchor
@@ -51,8 +62,8 @@ extension TDCView {
         }
     }
     
-    private func applyWidthConstaint(_ constaint: TDCSizeConstaint) {
-        switch constaint.value {
+    private func applyWidthConstraint(_ constraint: TDCSizeConstraint) {
+        switch constraint.value {
         case .absoulte(let value):
             self.UIView
                 .widthAnchor
@@ -64,8 +75,8 @@ extension TDCView {
 
 // MARK: - TDCView + Edge
 extension TDCView {
-    private func applyTopConstraint(_ constaint: TDCEdgeConstaint) {
-        switch constaint.value {
+    private func applyTopConstraint(_ constraint: TDCEdgeConstraint) {
+        switch constraint.value {
         case .relative(let relativeData):
             if let _ = relativeData.id {
                 applyRelativeViewTopConstraint(relativeData)
@@ -75,30 +86,30 @@ extension TDCView {
         }
     }
     
-    private func applySuperviewTopConstraint(_ constaint: TDCEdgeConstaint.RelativeConstaintData) {
+    private func applySuperviewTopConstraint(_ constraint: TDCEdgeConstraint.RelativeConstraintData) {
         guard let superView = self.UIView.superview else {
             return
         }
-        switch constaint.edge {
+        switch constraint.edge {
         case .topEdge:
             self.UIView
                 .topAnchor
-                .constraint(equalTo: superView.topAnchor, constant: constaint.constant.flatMap { CGFloat($0) } ?? 0)
+                .constraint(equalTo: superView.topAnchor, constant: constraint.constant.flatMap { CGFloat($0) } ?? 0)
                 .isActive = true
         case .bottomEdge:
             self.UIView
                 .topAnchor
-                .constraint(equalTo: superView.bottomAnchor, constant: constaint.constant.flatMap { CGFloat($0) } ?? 0)
+                .constraint(equalTo: superView.bottomAnchor, constant: constraint.constant.flatMap { CGFloat($0) } ?? 0)
                 .isActive = true
         }
     }
     
-    private func applyRelativeViewTopConstraint(_ constaint: TDCEdgeConstaint.RelativeConstaintData) {
+    private func applyRelativeViewTopConstraint(_ constraint: TDCEdgeConstraint.RelativeConstraintData) {
         //TODO: Implement apply applyRelativeViewTopConstraint with searching view by id
     }
     
-    private func applyBottomConstaint(_ constaint: TDCEdgeConstaint) {
-        switch constaint.value {
+    private func applyBottomConstraint(_ constraint: TDCEdgeConstraint) {
+        switch constraint.value {
         case .relative(let relativeData):
             if let _ = relativeData.id {
                 applyRelativeViewBottomConstraint(relativeData)
@@ -108,34 +119,34 @@ extension TDCView {
         }
     }
     
-    private func applySuperviewBottomConstraint(_ constaint: TDCEdgeConstaint.RelativeConstaintData) {
+    private func applySuperviewBottomConstraint(_ constraint: TDCEdgeConstraint.RelativeConstraintData) {
         guard let superView = self.UIView.superview else {
             return
         }
-        switch constaint.edge {
+        switch constraint.edge {
         case .topEdge:
             self.UIView
                 .bottomAnchor
-                .constraint(equalTo: superView.topAnchor, constant: constaint.constant.flatMap { CGFloat($0) } ?? 0)
+                .constraint(equalTo: superView.topAnchor, constant: constraint.constant.flatMap { CGFloat($0) } ?? 0)
                 .isActive = true
         case .bottomEdge:
             self.UIView
                 .bottomAnchor
-                .constraint(equalTo: superView.bottomAnchor, constant: constaint.constant.flatMap { CGFloat($0) } ?? 0)
+                .constraint(equalTo: superView.bottomAnchor, constant: constraint.constant.flatMap { CGFloat($0) } ?? 0)
                 .isActive = true
         }
         
     }
     
-    private func applyRelativeViewBottomConstraint(_ constaint: TDCEdgeConstaint.RelativeConstaintData) {
+    private func applyRelativeViewBottomConstraint(_ constraint: TDCEdgeConstraint.RelativeConstraintData) {
         //TODO: Implement apply applyRelativeViewBottomConstraint with searching view by id
     }
 }
 
 // MARK: - TDCView + Side
 extension TDCView {
-    private func applyLeftConstraint(_ constaint: TDCSideConstaint) {
-        switch constaint.value {
+    private func applyLeftConstraint(_ constraint: TDCSideConstraint) {
+        switch constraint.value {
         case .relative(let relativeData):
             if let _ = relativeData.id {
                 applyRelativeViewLeftConstraint(relativeData)
@@ -145,7 +156,7 @@ extension TDCView {
         }
     }
     
-    private func applySuperviewLeftConstraint(_ relative: TDCSideConstaint.RelativeConstaintData) {
+    private func applySuperviewLeftConstraint(_ relative: TDCSideConstraint.RelativeConstraintData) {
         guard let superView = self.UIView.superview else {
             return
         }
@@ -163,12 +174,12 @@ extension TDCView {
         }
     }
     
-    private func applyRelativeViewLeftConstraint(_ relative: TDCSideConstaint.RelativeConstaintData) {
+    private func applyRelativeViewLeftConstraint(_ relative: TDCSideConstraint.RelativeConstraintData) {
         //TODO: Implement apply applyRelativeViewLeftConstraint with searching view by id
     }
     
-    private func applyRightConstraint(_ constaint: TDCSideConstaint) {
-        switch constaint.value {
+    private func applyRightConstraint(_ constraint: TDCSideConstraint) {
+        switch constraint.value {
         case .relative(let relativeData):
             if let _ = relativeData.id {
                 applyRelativeViewRightConstraint(relativeData)
@@ -178,7 +189,7 @@ extension TDCView {
         }
     }
     
-    private func applySuperviewRightConstraint(_ relative: TDCSideConstaint.RelativeConstaintData) {
+    private func applySuperviewRightConstraint(_ relative: TDCSideConstraint.RelativeConstraintData) {
         guard let superView = self.UIView.superview else {
             return
         }
@@ -196,7 +207,7 @@ extension TDCView {
         }
     }
     
-    private func applyRelativeViewRightConstraint(_ relative: TDCSideConstaint.RelativeConstaintData) {
+    private func applyRelativeViewRightConstraint(_ relative: TDCSideConstraint.RelativeConstraintData) {
         //TODO: Implement apply applyRelativeViewRightConstraint with searching view by id
     }
 }

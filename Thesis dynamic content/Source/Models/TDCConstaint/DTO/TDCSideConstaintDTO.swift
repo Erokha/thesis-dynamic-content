@@ -1,5 +1,5 @@
 //
-//  TDCSideConstaintDTO.swift
+//  TDCSideConstraintDTO.swift
 //  Thesis dynamic content
 //
 //  Created by erokha on 4/5/22.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct TDCSideConstaintDTO: Decodable {
+struct TDCSideConstraintDTO: Decodable {
     let side: SideType
-    let value: ConstaintValue
+    let value: ConstraintValue
     
-    enum ConstaintValue {
-        case relative(RelativeConstaintData)
+    enum ConstraintValue {
+        case relative(RelativeConstraintData)
         case unknown
     }
     
@@ -22,7 +22,7 @@ struct TDCSideConstaintDTO: Decodable {
         case unknown
     }
     
-    struct RelativeConstaintData {
+    struct RelativeConstraintData {
         let id: TDCViewID?
         let side: SideType
         let constant: Float?
@@ -34,20 +34,20 @@ struct TDCSideConstaintDTO: Decodable {
     }
 }
 
-extension TDCSideConstaintDTO {
+extension TDCSideConstraintDTO {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         let rawSide = try container.decode(String.self, forKey: .side)
         let side = SideType(rawValue: rawSide) ?? .unknown
-        let value = try container.decode(ConstaintValue.self, forKey: .value)
+        let value = try container.decode(ConstraintValue.self, forKey: .value)
         
         self = .init(side: side, value: value)
     }
 }
 
-extension TDCSideConstaintDTO.ConstaintValue: Decodable {
+extension TDCSideConstraintDTO.ConstraintValue: Decodable {
     private enum CodingKeys: String, CodingKey {
         case type
     }
@@ -58,7 +58,7 @@ extension TDCSideConstaintDTO.ConstaintValue: Decodable {
         
         switch valueType {
         case "relative":
-            let relativeData = try TDCSideConstaintDTO.RelativeConstaintData(from: decoder)
+            let relativeData = try TDCSideConstraintDTO.RelativeConstraintData(from: decoder)
             self = .relative(relativeData)
         default:
             self = .unknown
@@ -66,7 +66,7 @@ extension TDCSideConstaintDTO.ConstaintValue: Decodable {
     }
 }
 
-extension TDCSideConstaintDTO.RelativeConstaintData {
+extension TDCSideConstraintDTO.RelativeConstraintData {
     private enum CodingKeys: String, CodingKey {
         case id
         case side
@@ -78,7 +78,7 @@ extension TDCSideConstaintDTO.RelativeConstaintData {
         
         self.id = try? container.decode(String.self, forKey: .id)
         let rawSide = try container.decode(String.self, forKey: .side)
-        self.side = TDCSideConstaintDTO.SideType(rawValue: rawSide) ?? .unknown
+        self.side = TDCSideConstraintDTO.SideType(rawValue: rawSide) ?? .unknown
         self.constant = try? container.decode(Float.self, forKey: .constant)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  TDCEdgeConstaint.swift
+//  TDCEdgeConstraint.swift
 //  Thesis dynamic content
 //
 //  Created by erokha on 4/5/22.
@@ -7,28 +7,22 @@
 
 import Foundation
 
-struct TDCSideConstaint {
-    let side: ConstaintType
-    let value: ConstaintValue
+struct TDCSideConstraint {
+    let side: ConstraintType
+    let value: ConstraintValue
     
-    enum ConstaintType {
+    enum ConstraintType {
         case ledftSide
         case rightSide
     }
     
-    enum ConstaintValue {
-        case relative(RelativeConstaintData)
+    enum ConstraintValue {
+        case relative(RelativeConstraintData)
     }
     
-    struct RelativeConstaintData {
+    struct RelativeConstraintData {
         let id: TDCViewID?
-        let side: ConstaintType
+        let side: ConstraintType
         let constant: Float?
-    }
-}
-
-extension TDCSideConstaint: TDCConstaintResolvable {
-    func resolve(using resolver: TDCConstaintResolver) {
-        resolver.resolve(sideConstaint: self)
     }
 }
