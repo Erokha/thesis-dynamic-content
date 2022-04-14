@@ -10,12 +10,12 @@ import UIKit
 
 public typealias TDCViewID = String
 
-class TDCView {
+class TDCBaseView: TDCViewProtocol {
 
     // MARK: - Public properties
     let id: TDCViewID
-    private(set) var subviews: [TDCView]
-    weak var superview: TDCView?
+    private(set) var subviews: [TDCViewProtocol]
+    weak var superview: TDCViewProtocol?
     var UIView: UIView = {
         let view = UIKit.UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -24,29 +24,18 @@ class TDCView {
     
     // MARK: - Private properties
     
-    private var configuration: TDCViewConfiguration
+    private var configuration: TDCBaseViewConfiguration
     
     private var constraints: [TDCConstraint]
     
-    // MARK: - Public Computed
-    
-    var sameLevelViews: [TDCView] {
-        guard let superview = superview else {
-            return []
-        }
-        return superview
-            .subviews
-            .filter { $0.id != self.id }
-    }
-    
     
     // MARK: - Init
-    init(from dto: TDCViewDTO) {
+    init(from dto: TDCBaseViewDTO) {
         let constraintConverter = TDCConstraintDTOToDomainConverter()
         self.id = dto.id
-        self.configuration = TDCViewConfiguration.init(from: dto.configuration)
+        self.configuration = TDCBaseViewConfiguration.init(from: dto.configuration)
         self.constraints = dto.constraints.compactMap { constraintConverter.convert(dto: $0) }
-        self.subviews = dto.subviews.map { TDCView(from: $0) }
+        self.subviews = dto.subviews.compactMap { TDCViewConverterSteward().covert(dto: $0) }
         
         self.subviews.forEach { $0.superview = self }
         applyConfiguration()
@@ -54,7 +43,7 @@ class TDCView {
     
     // MARK: - Public methods
     
-    func addSubview(_ subview: TDCView) {
+    func addSubview(_ subview: TDCBaseView) {
         subview.superview = self
         subviews.append(subview)
     }
@@ -81,9 +70,5 @@ class TDCView {
             UIView.clipsToBounds = true
         }
     }
-    
-    
 
 }
-
-

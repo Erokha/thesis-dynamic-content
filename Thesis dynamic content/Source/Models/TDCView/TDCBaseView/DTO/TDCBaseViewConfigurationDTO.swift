@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct TDCViewConfigurationDTO: Decodable {
+struct TDCBaseViewConfigurationDTO: Decodable {
     let color: String?
     let cornerRadius: Int?
 }
 
-extension TDCViewConfigurationDTO {
+extension TDCBaseViewConfigurationDTO {
     enum CodingKeys: String, CodingKey {
         case color
         case cornerRadius = "corner_radius"

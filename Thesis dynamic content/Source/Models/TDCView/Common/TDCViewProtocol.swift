@@ -8,7 +8,29 @@
 import Foundation
 import UIKit
 
-extension TDCView {
+protocol TDCViewProtocol: AnyObject {
+    func apply(constraint: TDCConstraint)
+    var id: TDCViewID { get }
+    var UIView: UIView { get }
+    var sameLevelViews: [TDCViewProtocol] { get }
+    var subviews: [TDCViewProtocol] { get }
+    var superview: TDCViewProtocol? { get set }
+    
+    func layout(on view: UIView)
+}
+
+extension TDCViewProtocol {
+    var sameLevelViews: [TDCViewProtocol] {
+        guard let superview = superview else {
+            return []
+        }
+        return superview
+            .subviews
+            .filter { $0.id != self.id }
+    }
+}
+
+extension TDCViewProtocol {
     func apply(constraint: TDCConstraint) {
         switch constraint {
         case .edge(let payload):
@@ -51,7 +73,7 @@ extension TDCView {
 }
 
 // MARK: - TDCView + SizeConstraint
-extension TDCView {
+extension TDCViewProtocol {
     private func applyHeightConstraint(_ constraint: TDCSizeConstraint) {
         switch constraint.value {
         case .absoulte(let value):
@@ -74,7 +96,7 @@ extension TDCView {
 }
 
 // MARK: - TDCView + Edge
-extension TDCView {
+extension TDCViewProtocol {
     private func applyTopConstraint(_ constraint: TDCEdgeConstraint) {
         switch constraint.value {
         case .relative(let relativeData):
@@ -144,7 +166,7 @@ extension TDCView {
 }
 
 // MARK: - TDCView + Side
-extension TDCView {
+extension TDCViewProtocol {
     private func applyLeftConstraint(_ constraint: TDCSideConstraint) {
         switch constraint.value {
         case .relative(let relativeData):
