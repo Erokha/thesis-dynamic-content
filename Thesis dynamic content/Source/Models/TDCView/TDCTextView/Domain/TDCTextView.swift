@@ -32,7 +32,7 @@ final class TDCTextView: TDCViewProtocol {
         self.id = dto.id
         self.configuration = TDCTextViewConfiguration.init(from: dto.configuration)
         self.constraints = dto.constraints.compactMap { constraintConverter.convert(dto: $0) }
-        self.subviews = dto.subviews.map { TDCBaseView(from: $0) }
+        self.subviews = dto.subviews.compactMap { TDCViewConverterSteward().covert(dto: $0) }
         
         self.subviews.forEach { $0.superview = self }
         applyConfiguration()

@@ -13,6 +13,11 @@
 		6B0F3FA3280781B2005D53C5 /* TDCTextViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0F3FA2280781B2005D53C5 /* TDCTextViewConfiguration.swift */; };
 		6B0F3FA828078D42005D53C5 /* TDCViewDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0F3FA728078D42005D53C5 /* TDCViewDTO.swift */; };
 		6B0F3FAA28078EF0005D53C5 /* TDCViewConverterSteward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0F3FA928078EF0005D53C5 /* TDCViewConverterSteward.swift */; };
+		6B0F3FB42807AFE4005D53C5 /* TDCIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0F3FB32807AFE4005D53C5 /* TDCIconView.swift */; };
+		6B0F3FB62807B022005D53C5 /* TDCIconViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0F3FB52807B022005D53C5 /* TDCIconViewConfiguration.swift */; };
+		6B0F3FB92807B09D005D53C5 /* TDCIconViewDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0F3FB82807B09D005D53C5 /* TDCIconViewDTO.swift */; };
+		6B0F3FBB2807B0A8005D53C5 /* TDCIconViewConfigurationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0F3FBA2807B0A8005D53C5 /* TDCIconViewConfigurationDTO.swift */; };
+		6B0F3FBD2807B321005D53C5 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0F3FBC2807B321005D53C5 /* ImageService.swift */; };
 		6BACD31A27FA15D900FFDDC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD31927FA15D900FFDDC5 /* AppDelegate.swift */; };
 		6BACD31C27FA15D900FFDDC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD31B27FA15D900FFDDC5 /* SceneDelegate.swift */; };
 		6BACD31E27FA15D900FFDDC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD31D27FA15D900FFDDC5 /* ViewController.swift */; };
@@ -44,6 +49,11 @@
 		6B0F3FA2280781B2005D53C5 /* TDCTextViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCTextViewConfiguration.swift; sourceTree = "<group>"; };
 		6B0F3FA728078D42005D53C5 /* TDCViewDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TDCViewDTO.swift; path = ../../../../../../Documents/TDCViewDTO.swift; sourceTree = "<group>"; };
 		6B0F3FA928078EF0005D53C5 /* TDCViewConverterSteward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TDCViewConverterSteward.swift; path = ../../../../../../Documents/TDCViewConverterSteward.swift; sourceTree = "<group>"; };
+		6B0F3FB32807AFE4005D53C5 /* TDCIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TDCIconView.swift; path = ../../../../../../../Documents/TDCIconView.swift; sourceTree = "<group>"; };
+		6B0F3FB52807B022005D53C5 /* TDCIconViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TDCIconViewConfiguration.swift; path = ../../../../../../../Documents/TDCIconViewConfiguration.swift; sourceTree = "<group>"; };
+		6B0F3FB82807B09D005D53C5 /* TDCIconViewDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TDCIconViewDTO.swift; path = ../../../../../../../Documents/TDCIconViewDTO.swift; sourceTree = "<group>"; };
+		6B0F3FBA2807B0A8005D53C5 /* TDCIconViewConfigurationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TDCIconViewConfigurationDTO.swift; path = ../../../../../../../Documents/TDCIconViewConfigurationDTO.swift; sourceTree = "<group>"; };
+		6B0F3FBC2807B321005D53C5 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		6BACD31627FA15D900FFDDC5 /* Thesis dynamic content.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Thesis dynamic content.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BACD31927FA15D900FFDDC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BACD31B27FA15D900FFDDC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,9 +121,11 @@
 		6B0F3FA528078D0B005D53C5 /* TDCView */ = {
 			isa = PBXGroup;
 			children = (
+				6B0F3F9928077A2D005D53C5 /* TDCTextView */,
+				6BACD34627FBAAC800FFDDC5 /* TDCConstaint */,
+				6B0F3FB02807AFBE005D53C5 /* TDCIconView */,
 				6B0F3FA628078D27005D53C5 /* Common */,
 				6BACD33727FA1C7A00FFDDC5 /* TDCBaseView */,
-				6B0F3F9928077A2D005D53C5 /* TDCTextView */,
 			);
 			path = TDCView;
 			sourceTree = "<group>";
@@ -126,6 +138,33 @@
 				6B0F3FA928078EF0005D53C5 /* TDCViewConverterSteward.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		6B0F3FB02807AFBE005D53C5 /* TDCIconView */ = {
+			isa = PBXGroup;
+			children = (
+				6B0F3FB22807AFCE005D53C5 /* Domain */,
+				6B0F3FB12807AFC9005D53C5 /* DTO */,
+			);
+			path = TDCIconView;
+			sourceTree = "<group>";
+		};
+		6B0F3FB12807AFC9005D53C5 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				6B0F3FB82807B09D005D53C5 /* TDCIconViewDTO.swift */,
+				6B0F3FBA2807B0A8005D53C5 /* TDCIconViewConfigurationDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		6B0F3FB22807AFCE005D53C5 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				6B0F3FB32807AFE4005D53C5 /* TDCIconView.swift */,
+				6B0F3FB52807B022005D53C5 /* TDCIconViewConfiguration.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		6BACD30D27FA15D900FFDDC5 = {
@@ -180,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				6B0F3FA528078D0B005D53C5 /* TDCView */,
-				6BACD34627FBAAC800FFDDC5 /* TDCConstaint */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				6BC526B727FD24850019BE5D /* LayoutRequestService.swift */,
+				6B0F3FBC2807B321005D53C5 /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -345,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BACD35027FBACF200FFDDC5 /* TDCConstaint+Resolvable.swift in Sources */,
+				6B0F3FB92807B09D005D53C5 /* TDCIconViewDTO.swift in Sources */,
 				6BACD34C27FBABFB00FFDDC5 /* TDCSizeConstaint.swift in Sources */,
 				6BACD33E27FA1E1F00FFDDC5 /* TDCBaseView.swift in Sources */,
 				6B0F3F9C28077CC9005D53C5 /* TDCTextView.swift in Sources */,
@@ -354,6 +394,7 @@
 				6BACD34A27FBAB1400FFDDC5 /* TDCEdgeConstaint.swift in Sources */,
 				6B0F3FA828078D42005D53C5 /* TDCViewDTO.swift in Sources */,
 				6BACD31A27FA15D900FFDDC5 /* AppDelegate.swift in Sources */,
+				6B0F3FBB2807B0A8005D53C5 /* TDCIconViewConfigurationDTO.swift in Sources */,
 				6BACD35B27FBB68E00FFDDC5 /* TDCSideConstaintDTO.swift in Sources */,
 				6BACD34527FA218800FFDDC5 /* UIColor.swift in Sources */,
 				6BACD35227FBB05300FFDDC5 /* TDCViewProtocol.swift in Sources */,
@@ -361,8 +402,11 @@
 				6BC526B527FD18B70019BE5D /* TDCConstraintConverter.swift in Sources */,
 				6BC526B827FD24850019BE5D /* LayoutRequestService.swift in Sources */,
 				6BACD34E27FBAC7E00FFDDC5 /* TDCSideConstaint.swift in Sources */,
+				6B0F3FB62807B022005D53C5 /* TDCIconViewConfiguration.swift in Sources */,
 				6BACD31C27FA15D900FFDDC5 /* SceneDelegate.swift in Sources */,
 				6BACD33927FA1CDD00FFDDC5 /* TDCBaseViewConfigurationDTO.swift in Sources */,
+				6B0F3FB42807AFE4005D53C5 /* TDCIconView.swift in Sources */,
+				6B0F3FBD2807B321005D53C5 /* ImageService.swift in Sources */,
 				6BACD35927FBB67600FFDDC5 /* TDCEdgeConstaintDTO.swift in Sources */,
 				6B0F3F9F28077F64005D53C5 /* TDCTextViewDTO.swift in Sources */,
 				6B0F3FA3280781B2005D53C5 /* TDCTextViewConfiguration.swift in Sources */,
