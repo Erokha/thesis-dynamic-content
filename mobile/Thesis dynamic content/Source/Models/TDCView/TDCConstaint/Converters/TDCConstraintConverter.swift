@@ -1,10 +1,3 @@
-//
-//  TDCConstraintConverter.swift
-//  Thesis dynamic content
-//
-//  Created by erokha on 4/6/22.
-//
-
 import Foundation
 
 struct TDCConstraintDTOToDomainConverter {

@@ -1,11 +1,5 @@
-//
-//  TDCIconViewConfigurationDTO.swift
-//  Thesis dynamic content
-//
-//  Created by erokha on 4/14/22.
-//
-
 import Foundation
+
 struct TDCIconViewConfigurationDTO: Decodable {
     enum ContentScaleType: String {
         case scaleAspectFill = "scale_aspect_fill"

@@ -1,10 +1,3 @@
-//
-//  LayoutRequestService.swift
-//  Thesis dynamic content
-//
-//  Created by erokha on 4/6/22.
-//
-
 import Foundation
 import Alamofire
 

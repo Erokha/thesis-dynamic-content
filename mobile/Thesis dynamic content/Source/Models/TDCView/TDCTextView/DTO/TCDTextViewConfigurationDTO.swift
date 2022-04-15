@@ -1,10 +1,3 @@
-//
-//  TCDTextViewConfigurationDTO.swift
-//  Thesis dynamic content
-//
-//  Created by erokha on 4/14/22.
-//
-
 import Foundation
 
 struct TDCTextViewConfigurationDTO: Decodable {

@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Thesis dynamic content
-//
-//  Created by erokha on 4/3/22.
-//
-
 import UIKit
 
 @main

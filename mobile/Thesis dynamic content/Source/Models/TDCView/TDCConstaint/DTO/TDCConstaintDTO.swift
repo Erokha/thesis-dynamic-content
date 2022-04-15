@@ -1,10 +1,3 @@
-//
-//  TDCConstraintDTO.swift
-//  Thesis dynamic content
-//
-//  Created by erokha on 4/5/22.
-//
-
 import Foundation
 
 enum TDCConstraintDTO: Decodable {
