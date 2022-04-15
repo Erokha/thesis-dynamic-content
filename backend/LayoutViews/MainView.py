@@ -180,6 +180,50 @@ def make_list_item(number: int):
         ),
         subviews=[]
     )
+    textView = TDCTextView(
+        id=f"list_item_n{number}_text",
+        constraints=[
+            EdgeConstraint(
+                edge=Edge.top,
+                value=RelativeEdgeValue(
+                    edge=Edge.top,
+                    constant=10,
+                    id=None
+                )
+            ),
+            EdgeConstraint(
+                edge=Edge.bottom,
+                value=RelativeEdgeValue(
+                    edge=Edge.bottom,
+                    constant=-10,
+                    id=None
+                )
+            ),
+            SideConstraint(
+                side=Side.left,
+                value=RelativeSideValue(
+                    side=Side.right,
+                    constant=30,
+                    id=f"list_item_n{number}_icon"
+                )
+            ),
+            SideConstraint(
+                side=Side.right,
+                value=RelativeSideValue(
+                    side=Side.right,
+                    constant=-10,
+                    id=None
+                )
+            ),
+        ],
+        configuration=TDCTextViewConfiguration(
+            text_color="#000000",
+            text_size=14,
+            text="Test text",
+            arrangenment=None
+        ),
+        subviews=[]
+    )
     return TDCBaseView(
         id=f"list_item_n{number}",
         constraints=[
@@ -219,7 +263,8 @@ def make_list_item(number: int):
             corner_radius=0
         ),
         subviews=[
-            iconView
+            iconView,
+            textView
         ]
     )
 

@@ -102,25 +102,21 @@ extension TDCViewProtocol {
     }
     
     private func applySuperviewTopConstraint(_ constraint: TDCEdgeConstraint.RelativeConstraintData) {
-        guard let superView = self.UIView.superview else {
+        guard let superView = UIView.superview else {
             return
         }
-        switch constraint.edge {
-        case .topEdge:
-            self.UIView
-                .topAnchor
-                .constraint(equalTo: superView.topAnchor, constant: constraint.constant.flatMap { CGFloat($0) } ?? 0)
-                .isActive = true
-        case .bottomEdge:
-            self.UIView
-                .topAnchor
-                .constraint(equalTo: superView.bottomAnchor, constant: constraint.constant.flatMap { CGFloat($0) } ?? 0)
-                .isActive = true
-        }
+        applyTopConstraint(constraint, to: superView)
     }
     
     private func applyRelativeViewTopConstraint(_ constraint: TDCEdgeConstraint.RelativeConstraintData) {
-        //TODO: Implement apply applyRelativeViewTopConstraint with searching view by id
+        guard let id = constraint.id else {
+            applySuperviewTopConstraint(constraint)
+            return
+        }
+        guard let relativeView = sameLevelViews.first(where: { $0.id == id }) else {
+            return
+        }
+        applyTopConstraint(constraint, to: relativeView.UIView)
     }
     
     private func applyBottomConstraint(_ constraint: TDCEdgeConstraint) {
@@ -138,23 +134,62 @@ extension TDCViewProtocol {
         guard let superView = self.UIView.superview else {
             return
         }
+        applyBottomConstraint(constraint, to: superView)
+    }
+    
+    private func applyRelativeViewBottomConstraint(_ constraint: TDCEdgeConstraint.RelativeConstraintData) {
+        guard let id = constraint.id else {
+            applySuperviewBottomConstraint(constraint)
+            return
+        }
+        guard let relativeView = sameLevelViews.first(where: { $0.id == id }) else {
+            return
+        }
+        applyBottomConstraint(constraint, to: relativeView.UIView)
+    }
+    
+    private func applyTopConstraint(
+        _ constraint: TDCEdgeConstraint.RelativeConstraintData,
+        to view: UIView
+    ) {
+        switch constraint.edge {
+        case .topEdge:
+            self.UIView
+                .topAnchor
+                .constraint(
+                    equalTo: view.topAnchor,
+                    constant: constraint.constant.flatMap { CGFloat($0) } ?? 0
+                ).isActive = true
+        case .bottomEdge:
+            self.UIView
+                .topAnchor
+                .constraint(
+                    equalTo: view.bottomAnchor,
+                    constant: constraint.constant.flatMap { CGFloat($0) } ?? 0
+                ).isActive = true
+        }
+    }
+    
+    private func applyBottomConstraint(
+        _ constraint: TDCEdgeConstraint.RelativeConstraintData,
+        to view: UIView
+    ) {
         switch constraint.edge {
         case .topEdge:
             self.UIView
                 .bottomAnchor
-                .constraint(equalTo: superView.topAnchor, constant: constraint.constant.flatMap { CGFloat($0) } ?? 0)
-                .isActive = true
+                .constraint(
+                    equalTo: view.topAnchor,
+                    constant: constraint.constant.flatMap { CGFloat($0) } ?? 0
+                ).isActive = true
         case .bottomEdge:
             self.UIView
                 .bottomAnchor
-                .constraint(equalTo: superView.bottomAnchor, constant: constraint.constant.flatMap { CGFloat($0) } ?? 0)
-                .isActive = true
+                .constraint(
+                    equalTo: view.bottomAnchor,
+                    constant: constraint.constant.flatMap { CGFloat($0) } ?? 0
+                ).isActive = true
         }
-        
-    }
-    
-    private func applyRelativeViewBottomConstraint(_ constraint: TDCEdgeConstraint.RelativeConstraintData) {
-        //TODO: Implement apply applyRelativeViewBottomConstraint with searching view by id
     }
 }
 
@@ -172,25 +207,21 @@ extension TDCViewProtocol {
     }
     
     private func applySuperviewLeftConstraint(_ relative: TDCSideConstraint.RelativeConstraintData) {
-        guard let superView = self.UIView.superview else {
+        guard let superView = UIView.superview else {
             return
         }
-        switch relative.side {
-        case .ledftSide:
-            self.UIView
-                .leftAnchor
-                .constraint(equalTo: superView.leftAnchor, constant: relative.constant.flatMap { CGFloat($0) } ?? 0)
-                .isActive = true
-        case .rightSide:
-            self.UIView
-                .leftAnchor
-                .constraint(equalTo: superView.rightAnchor, constant: relative.constant.flatMap { CGFloat($0) } ?? 0)
-                .isActive = true
-        }
+        applyLeftConstraint(relative, to: superView)
     }
     
     private func applyRelativeViewLeftConstraint(_ relative: TDCSideConstraint.RelativeConstraintData) {
-        //TODO: Implement apply applyRelativeViewLeftConstraint with searching view by id
+        guard let id = relative.id else {
+            applySuperviewLeftConstraint(relative)
+            return
+        }
+        guard let relativeView = sameLevelViews.first(where: { $0.id == id }) else {
+            return
+        }
+        applyLeftConstraint(relative, to: relativeView.UIView)
     }
     
     private func applyRightConstraint(_ constraint: TDCSideConstraint) {
@@ -205,24 +236,64 @@ extension TDCViewProtocol {
     }
     
     private func applySuperviewRightConstraint(_ relative: TDCSideConstraint.RelativeConstraintData) {
-        guard let superView = self.UIView.superview else {
+        guard let superView = UIView.superview else {
             return
         }
-        switch relative.side {
-        case .ledftSide:
-            self.UIView
-                .rightAnchor
-                .constraint(equalTo: superView.leftAnchor, constant: relative.constant.flatMap { CGFloat($0) } ?? 0)
-                .isActive = true
-        case .rightSide:
-            self.UIView
-                .rightAnchor
-                .constraint(equalTo: superView.rightAnchor, constant: relative.constant.flatMap { CGFloat($0) } ?? 0)
-                .isActive = true
-        }
+        applyRightConstraint(relative, to: superView)
     }
     
     private func applyRelativeViewRightConstraint(_ relative: TDCSideConstraint.RelativeConstraintData) {
-        //TODO: Implement apply applyRelativeViewRightConstraint with searching view by id
+        guard let id = relative.id else {
+            applySuperviewRightConstraint(relative)
+            return
+        }
+        guard let relativeView = sameLevelViews.first(where: { $0.id == id }) else {
+            return
+        }
+        applyRightConstraint(relative, to: relativeView.UIView)
+    }
+    
+    private func applyLeftConstraint(
+        _ constraint: TDCSideConstraint.RelativeConstraintData,
+        to view: UIView
+    ) {
+        switch constraint.side {
+        case .ledftSide:
+            self.UIView
+                .leftAnchor
+                .constraint(
+                    equalTo: view.leftAnchor,
+                    constant: constraint.constant.flatMap { CGFloat($0) } ?? 0
+                ).isActive = true
+        case .rightSide:
+            self.UIView
+                .leftAnchor
+                .constraint(
+                    equalTo: view.rightAnchor,
+                    constant: constraint.constant.flatMap { CGFloat($0) } ?? 0
+                ).isActive = true
+        }
+    }
+    
+    private func applyRightConstraint(
+        _ constraint: TDCSideConstraint.RelativeConstraintData,
+        to view: UIView
+    ) {
+        switch constraint.side {
+        case .ledftSide:
+            self.UIView
+                .rightAnchor
+                .constraint(
+                    equalTo: view.leftAnchor,
+                    constant: constraint.constant.flatMap { CGFloat($0) } ?? 0
+                ).isActive = true
+        case .rightSide:
+            self.UIView
+                .rightAnchor
+                .constraint(
+                    equalTo: view.rightAnchor,
+                    constant: constraint.constant.flatMap { CGFloat($0) } ?? 0
+                ).isActive = true
+        }
     }
 }
