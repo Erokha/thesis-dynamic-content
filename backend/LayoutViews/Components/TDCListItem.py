@@ -8,7 +8,7 @@ class TDCListItem:
     id: str
     image_url: typing.Optional[str]
     title: typing.Optional[str]
-    bg_color: str
+    background_color: str
     title_color: str
 
     def __init__(
@@ -16,13 +16,13 @@ class TDCListItem:
             id: str,
             image_url: typing.Optional[str] = None,
             title: typing.Optional[str] = None,
-            bg_color: typing.Optional[ColorPicker] = None,
-            title_color: typing.Optional[ColorPicker] = None,
+            background_color: typing.Optional[str] = None,
+            title_color: typing.Optional[str] = None,
     ):
         self.id = id
         self.image_url = image_url
         self.title = title
-        self.bg_color = bg_color if bg_color else ColorPicker.white.get_color_hex()
+        self.background_color = background_color if background_color else ColorPicker.white.get_color_hex()
         self.title_color = title_color if title_color else ColorPicker.black.get_color_hex()
 
     def image_view_id(self) -> typing.Optional[str]:
@@ -120,7 +120,7 @@ class TDCListItem:
                 )
             ],
             configuration=tdc.TDCIconViewConfiguration(
-                color=self.bg_color,
+                color=self.background_color,
                 corner_radius=5,
                 content_scale_type=tdc.TDCIconViewScaleType.scale_aspect_fill,
                 image_url=self.image_url
@@ -141,7 +141,7 @@ class TDCListItem:
             ],
             subviews=[],
             configuration=tdc.TDCBaseViewConfiguration(
-                color=self.bg_color,
+                color=self.background_color,
                 corner_radius=10
             )
         )

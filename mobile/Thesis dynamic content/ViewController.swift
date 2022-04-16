@@ -4,7 +4,12 @@ final class InitialViewController: UIViewController {
     
     private var tdcView: TDCViewProtocol? {
         didSet {
-            tdcView?.layout(on: view)
+            guard let tdcView = tdcView else {
+                return
+            }
+
+            view.addSubview(tdcView.UIView)
+            tdcView.layout(on: view)
         }
     }
 

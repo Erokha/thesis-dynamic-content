@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 protocol TDCViewProtocol: AnyObject {
+    typealias LayoutCompletion = (() -> Void)
     func apply(constraint: TDCConstraint)
     var id: TDCViewID { get }
     var UIView: UIView { get }
@@ -9,6 +10,8 @@ protocol TDCViewProtocol: AnyObject {
     var subviews: [TDCViewProtocol] { get }
     var superview: TDCViewProtocol? { get set }
     
+    
+    func applyConstraints()
     func layout(on view: UIView)
 }
 
@@ -20,6 +23,18 @@ extension TDCViewProtocol {
         return superview
             .subviews
             .filter { $0.id != self.id }
+    }
+    
+    func layout(on view: UIView) {
+        subviews.forEach {
+            $0.superview = self
+            self.UIView.addSubview($0.UIView)
+        }
+        self.applyConstraints()
+        subviews.forEach {
+            $0.layout(on: self.UIView)
+            $0.applyConstraints()
+        }
     }
 }
 

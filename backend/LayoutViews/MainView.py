@@ -1,11 +1,9 @@
 from constraints.constraints import *
 from View.TDCViews import *
+from LayoutViews.Components.ColorPicker import ColorPicker
+import LayoutViews.Components.TDCListItem as li
 
-list_item_height = 50
 list_item_spacing = 20
-
-header_color = "#0CAAE1"
-gray_color = "#E9E9E9"
 
 def make_background_view():
     return TDCBaseView(
@@ -129,7 +127,7 @@ def make_header_view():
             )
         ],
         configuration=TDCBaseViewConfiguration(
-            color=header_color,
+            color=ColorPicker.navy.get_color_hex(),
             corner_radius=20
         ),
         subviews=[
@@ -138,135 +136,42 @@ def make_header_view():
     )
 
 def make_list_item(number: int):
-    iconView = TDCIconView(
-        id=f"list_item_n{number}_icon",
-        constraints=[
-            EdgeConstraint(
-                edge=Edge.top,
-                value=RelativeEdgeValue(
-                    id=None,
-                    edge=Edge.top,
-                    constant=10
-                )
-            ),
-            EdgeConstraint(
-                edge=Edge.bottom,
-                value=RelativeEdgeValue(
-                    id=None,
-                    edge=Edge.bottom,
-                    constant=-10
-                )
-            ),
-            SizeConstraint(
-                size_type=SizeType.width,
-                value=AbsoluteSizeValue(
-                    value=30
-                )
-            ),
-            SideConstraint(
+    list_item = li.TDCListItem(
+        id=f"list_item_{number}",
+        image_url="https://commons.bmstu.wiki/images/c/c4/IU7-im.png",
+        title=f"List Item #{number}",
+        background_color=ColorPicker.orange.get_color_hex(),
+        title_color=ColorPicker.red.get_color_hex(),
+    ).to_base_view()
+    add_constraints = [
+        SideConstraint(
+            side=Side.left,
+            value=RelativeSideValue(
                 side=Side.left,
-                value=RelativeSideValue(
-                    id=None,
-                    side=Side.left,
-                    constant=10
-                )
+                constant=20,
+                id=None
             )
-        ],
-        configuration=TDCIconViewConfiguration(
-            color=gray_color,
-            corner_radius=5,
-            content_scale_type=TDCIconViewScaleType.scale_aspect_fill,
-            image_url="https://commons.bmstu.wiki/images/c/c4/IU7-im.png"
         ),
-        subviews=[]
-    )
-    textView = TDCTextView(
-        id=f"list_item_n{number}_text",
-        constraints=[
-            EdgeConstraint(
-                edge=Edge.top,
-                value=RelativeEdgeValue(
-                    edge=Edge.top,
-                    constant=10,
-                    id=None
-                )
-            ),
-            EdgeConstraint(
-                edge=Edge.bottom,
-                value=RelativeEdgeValue(
-                    edge=Edge.bottom,
-                    constant=-10,
-                    id=None
-                )
-            ),
-            SideConstraint(
-                side=Side.left,
-                value=RelativeSideValue(
-                    side=Side.right,
-                    constant=30,
-                    id=f"list_item_n{number}_icon"
-                )
-            ),
-            SideConstraint(
+        SideConstraint(
+            side=Side.right,
+            value=RelativeSideValue(
                 side=Side.right,
-                value=RelativeSideValue(
-                    side=Side.right,
-                    constant=-10,
-                    id=None
-                )
-            ),
-        ],
-        configuration=TDCTextViewConfiguration(
-            text_color="#000000",
-            text_size=14,
-            text="Test text",
-            arrangenment=None
-        ),
-        subviews=[]
-    )
-    return TDCBaseView(
-        id=f"list_item_n{number}",
-        constraints=[
-            EdgeConstraint(
-                edge=Edge.top,
-                value=RelativeEdgeValue(
-                    id=None,
-                    edge=Edge.top,
-                    constant=120 + (number - 1) * (list_item_height + list_item_spacing) + list_item_spacing
-                )
-            ),
-            SizeConstraint(
-                size_type=SizeType.height,
-                value=AbsoluteSizeValue(
-                    value=list_item_height
-                )
-            ),
-            SideConstraint(
-                side=Side.left,
-                value=RelativeSideValue(
-                    id=None,
-                    side=Side.left,
-                    constant=20
-                )
-            ),
-            SideConstraint(
-                side=Side.right,
-                value=RelativeSideValue(
-                    id=None,
-                    side=Side.right,
-                    constant=-20
-                )
+                constant=-20,
+                id=None
             )
-        ],
-        configuration=TDCBaseViewConfiguration(
-            color="#FF9301",
-            corner_radius=0
         ),
-        subviews=[
-            iconView,
-            textView
-        ]
-    )
+        EdgeConstraint(
+            edge=Edge.top,
+            value=RelativeEdgeValue(
+                edge=Edge.bottom,
+                constant=50 if number == 1 else 20,
+                id= "main_header" if number == 1 else f"list_item_{number - 1}",
+            )
+        )
+    ]
+    for constraint in add_constraints:
+        list_item.constraints.append(constraint)
+    return list_item
 
 def make_tab_bar():
     left_tabbar_item = TDCBaseView(
@@ -304,7 +209,7 @@ def make_tab_bar():
             )
         ],
         configuration=TDCBaseViewConfiguration(
-            color=header_color,
+            color=ColorPicker.navy.get_color_hex(),
             corner_radius=0
         ),
         subviews=[]
@@ -344,7 +249,7 @@ def make_tab_bar():
             )
         ],
         configuration=TDCBaseViewConfiguration(
-            color=header_color,
+            color=ColorPicker.navy.get_color_hex(),
             corner_radius=0
         ),
         subviews=[]
@@ -384,7 +289,7 @@ def make_tab_bar():
             )
         ],
         configuration=TDCBaseViewConfiguration(
-            color=header_color,
+            color=ColorPicker.navy.get_color_hex(),
             corner_radius=0
         ),
         subviews=[]

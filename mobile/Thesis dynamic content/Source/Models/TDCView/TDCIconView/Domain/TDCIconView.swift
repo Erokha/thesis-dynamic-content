@@ -64,10 +64,4 @@ final class TDCIconView: TDCViewProtocol {
         
     }
     
-    func layout(on view: UIView) {
-        view.addSubview(self.UIView)
-        subviews.forEach { $0.layout(on: self.UIView) }
-        self.applyConstraints()
-    }
-    
 }

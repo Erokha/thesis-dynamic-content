@@ -45,12 +45,6 @@ class TDCBaseView: TDCViewProtocol {
         constraints.forEach { apply(constraint: $0) }
     }
     
-    func layout(on view: UIView) {
-        view.addSubview(self.UIView)
-        subviews.forEach { $0.layout(on: self.UIView) }
-        self.applyConstraints()
-    }
-    
     // MARK: - Private methods
     
     private func applyConfiguration() {

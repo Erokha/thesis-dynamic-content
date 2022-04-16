@@ -127,11 +127,11 @@
 		6B0F3FA528078D0B005D53C5 /* TDCView */ = {
 			isa = PBXGroup;
 			children = (
+				6BACD33727FA1C7A00FFDDC5 /* TDCBaseView */,
 				6B0F3FC12807BDA4005D53C5 /* TDCIconView */,
 				6B0F3F9928077A2D005D53C5 /* TDCTextView */,
 				6BACD34627FBAAC800FFDDC5 /* TDCConstaint */,
 				6B0F3FA628078D27005D53C5 /* Common */,
-				6BACD33727FA1C7A00FFDDC5 /* TDCBaseView */,
 			);
 			path = TDCView;
 			sourceTree = "<group>";
@@ -168,8 +168,8 @@
 		6B0F3FC32807BDB2005D53C5 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				6B0F3FC62807BDD2005D53C5 /* TDCIconViewConfiguration.swift */,
 				6B0F3FC42807BDC7005D53C5 /* TDCIconView.swift */,
+				6B0F3FC62807BDD2005D53C5 /* TDCIconViewConfiguration.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
