@@ -21,9 +21,7 @@ extension TDCViewProtocol {
         guard let superview = superview else {
             return []
         }
-        return superview
-            .subviews
-            .filter { $0.id != self.id }
+        return superview.subviews
     }
     
     func layout(on view: UIView) {
