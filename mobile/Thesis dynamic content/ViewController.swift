@@ -33,7 +33,9 @@ extension InitialViewController: TDCActionInvokerDelegate {
             }
         actions.forEach { alertController.addAction($0) }
         
-        present(alertController, animated: true, completion: nil)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alertController, animated: true, completion: nil)
+        }
     }
     
     
