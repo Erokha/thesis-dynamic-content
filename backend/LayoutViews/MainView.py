@@ -60,7 +60,7 @@ def make_header_view():
                 value=RelativeEdgeValue(
                     id=None,
                     edge=Edge.bottom,
-                    constant=-25
+                    constant=-40
                 )
             ),
             SizeConstraint(
@@ -89,7 +89,50 @@ def make_header_view():
         configuration=TDCTextViewConfiguration(
             text_color="#ffffff",
             text_size=32,
-            text="Title",
+            text="Owzeego",
+            arrangenment=TDCTextViewArrangenment.center,
+            on_tap_action=None
+        ),
+        subviews=[]
+    )
+    subtitleView = TDCTextView(
+        id="main_header_subtitle",
+        constraints=[
+            EdgeConstraint(
+                edge=Edge.top,
+                value=RelativeEdgeValue(
+                    id="main_header_text",
+                    edge=Edge.bottom,
+                    constant=10
+                )
+            ),
+            SizeConstraint(
+                size_type=SizeType.height,
+                value=AbsoluteSizeValue(
+                    value=20
+                )
+            ),
+            SideConstraint(
+                side=Side.left,
+                value=RelativeSideValue(
+                    id=None,
+                    side=Side.left,
+                    constant=40
+                )
+            ),
+            SideConstraint(
+                side=Side.right,
+                value=RelativeSideValue(
+                    id=None,
+                    side=Side.right,
+                    constant=-40
+                )
+            )
+        ],
+        configuration=TDCTextViewConfiguration(
+            text_color="#ffffff",
+            text_size=10,
+            text="stan smith",
             arrangenment=TDCTextViewArrangenment.center,
             on_tap_action=None
         ),
@@ -135,7 +178,8 @@ def make_header_view():
             on_tap_action=None
         ),
         subviews=[
-            textView
+            textView,
+            subtitleView
         ]
     )
 
@@ -168,7 +212,7 @@ def make_list_item(number: int):
             edge=Edge.top,
             value=RelativeEdgeValue(
                 edge=Edge.bottom,
-                constant=50 if number == 1 else 20,
+                constant=35 if number == 1 else 20,
                 id= "main_header" if number == 1 else f"list_item_{number - 1}",
             )
         )
@@ -186,10 +230,15 @@ def make_list_item(number: int):
             action.TDCAlertOption(
                 title="Second option",
                 action=None,
+            ),
+            action.TDCAlertOption(
+                title="Third option",
+                action=None,
             )
         ]
     )
     return list_item
+
 
 def make_tab_bar():
     left_tabbar_item = TDCBaseView(

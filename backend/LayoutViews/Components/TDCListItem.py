@@ -3,6 +3,7 @@ import View.TDCViews as tdc
 from LayoutViews.Components.ColorPicker import ColorPicker
 import typing
 
+TDCLISTITEMHEIGHT = 45
 
 class TDCListItem:
     id: str
@@ -10,6 +11,7 @@ class TDCListItem:
     title: typing.Optional[str]
     background_color: str
     title_color: str
+
 
     def __init__(
             self,
@@ -137,7 +139,7 @@ class TDCListItem:
                 constraints.SizeConstraint(
                     size_type=constraints.SizeType.height,
                     value=constraints.AbsoluteSizeValue(
-                        value=50
+                        value=TDCLISTITEMHEIGHT
                     )
                 )
             ],
