@@ -21,6 +21,12 @@ class TDCBaseView: TDCViewProtocol {
     
     private var constraints: [TDCConstraint]
     
+    var invoker: TDCActionInvokerProxy? {
+        didSet {
+            subviews.forEach { $0.invoker = invoker }
+        }
+    }
+    
     
     // MARK: - Init
     init(from dto: TDCBaseViewDTO) {

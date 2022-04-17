@@ -18,6 +18,12 @@ final class TDCIconView: TDCViewProtocol {
     
     let constraints: [TDCConstraint]
     
+    var invoker: TDCActionInvokerProxy? {
+        didSet {
+            subviews.forEach { $0.invoker = invoker }
+        }
+    }
+    
     let configuration: TDCIconViewConfiguration
     
     init(from dto: TDCIconViewDTO) {

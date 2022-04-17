@@ -43,6 +43,9 @@
 		6BF290B1280A006100576C56 /* TDCAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF290B0280A006100576C56 /* TDCAlertAction.swift */; };
 		6BF290B3280A008300576C56 /* TDCAlertActionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF290B2280A008300576C56 /* TDCAlertActionDTO.swift */; };
 		6BF290B7280A00E200576C56 /* TDCActionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF290B6280A00E200576C56 /* TDCActionDTO.swift */; };
+		6BF290B9280BD00600576C56 /* TDCActionInvoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF290B8280BD00600576C56 /* TDCActionInvoker.swift */; };
+		6BF290BC280BD12100576C56 /* NSLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF290BB280BD12100576C56 /* NSLock.swift */; };
+		6BF290BE280BD45E00576C56 /* TDCAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF290BD280BD45E00576C56 /* TDCAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +86,9 @@
 		6BF290B0280A006100576C56 /* TDCAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCAlertAction.swift; sourceTree = "<group>"; };
 		6BF290B2280A008300576C56 /* TDCAlertActionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCAlertActionDTO.swift; sourceTree = "<group>"; };
 		6BF290B6280A00E200576C56 /* TDCActionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCActionDTO.swift; sourceTree = "<group>"; };
+		6BF290B8280BD00600576C56 /* TDCActionInvoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCActionInvoker.swift; sourceTree = "<group>"; };
+		6BF290BB280BD12100576C56 /* NSLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLock.swift; sourceTree = "<group>"; };
+		6BF290BD280BD45E00576C56 /* TDCAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				6BACD34427FA218800FFDDC5 /* UIColor.swift */,
+				6BF290BB280BD12100576C56 /* NSLock.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -310,6 +317,7 @@
 			children = (
 				6BC526B727FD24850019BE5D /* LayoutRequestService.swift */,
 				6B0F3FBC2807B321005D53C5 /* ImageService.swift */,
+				6BF290B8280BD00600576C56 /* TDCActionInvoker.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -368,6 +376,7 @@
 		6BF290B5280A00CF00576C56 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				6BF290BD280BD45E00576C56 /* TDCAction.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -460,12 +469,15 @@
 				6BACD34A27FBAB1400FFDDC5 /* TDCEdgeConstaint.swift in Sources */,
 				6BF290B3280A008300576C56 /* TDCAlertActionDTO.swift in Sources */,
 				6BACD31A27FA15D900FFDDC5 /* AppDelegate.swift in Sources */,
+				6BF290B9280BD00600576C56 /* TDCActionInvoker.swift in Sources */,
 				6BACD35B27FBB68E00FFDDC5 /* TDCSideConstaintDTO.swift in Sources */,
 				6BACD34527FA218800FFDDC5 /* UIColor.swift in Sources */,
 				6B0F3FC52807BDC7005D53C5 /* TDCIconView.swift in Sources */,
 				6B0F3FCD2807BE7E005D53C5 /* TDCIconViewConfigurationDTO.swift in Sources */,
 				6BACD35227FBB05300FFDDC5 /* TDCViewProtocol.swift in Sources */,
 				6BACD33627FA1C4400FFDDC5 /* TDCBaseViewDTO.swift in Sources */,
+				6BF290BE280BD45E00576C56 /* TDCAction.swift in Sources */,
+				6BF290BC280BD12100576C56 /* NSLock.swift in Sources */,
 				6BC526B527FD18B70019BE5D /* TDCConstraintConverter.swift in Sources */,
 				6BC526B827FD24850019BE5D /* LayoutRequestService.swift in Sources */,
 				6BACD34E27FBAC7E00FFDDC5 /* TDCSideConstaint.swift in Sources */,

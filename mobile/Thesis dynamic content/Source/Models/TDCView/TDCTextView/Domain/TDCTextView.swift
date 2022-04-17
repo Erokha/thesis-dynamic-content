@@ -16,6 +16,12 @@ final class TDCTextView: TDCViewProtocol {
     
     weak var superview: TDCViewProtocol?
     
+    var invoker: TDCActionInvokerProxy? {
+        didSet {
+            subviews.forEach { $0.invoker = invoker }
+        }
+    }
+    
     let constraints: [TDCConstraint]
     
     let configuration: TDCTextViewConfiguration

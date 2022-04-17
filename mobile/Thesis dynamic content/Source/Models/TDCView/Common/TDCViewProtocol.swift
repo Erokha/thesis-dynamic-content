@@ -6,6 +6,7 @@ protocol TDCViewProtocol: AnyObject {
     func apply(constraint: TDCConstraint)
     var id: TDCViewID { get }
     var UIView: UIView { get }
+    var invoker: TDCActionInvokerProxy? { get set }
     var sameLevelViews: [TDCViewProtocol] { get }
     var subviews: [TDCViewProtocol] { get }
     var superview: TDCViewProtocol? { get set }
