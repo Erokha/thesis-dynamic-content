@@ -2,6 +2,7 @@ from constraints.constraints import *
 from View.TDCViews import *
 from LayoutViews.Components.ColorPicker import ColorPicker
 import LayoutViews.Components.TDCListItem as li
+import TDCActions as action
 
 list_item_spacing = 20
 
@@ -44,7 +45,8 @@ def make_background_view():
         ],
         configuration=TDCBaseViewConfiguration(
             color="#FFFFFF",
-            corner_radius=0
+            corner_radius=0,
+            on_tap_action=None
         ),
         subviews=[]
     )
@@ -88,7 +90,8 @@ def make_header_view():
             text_color="#ffffff",
             text_size=32,
             text="Title",
-            arrangenment=TDCTextViewArrangenment.center
+            arrangenment=TDCTextViewArrangenment.center,
+            on_tap_action=None
         ),
         subviews=[]
     )
@@ -128,7 +131,8 @@ def make_header_view():
         ],
         configuration=TDCBaseViewConfiguration(
             color=ColorPicker.navy.get_color_hex(),
-            corner_radius=20
+            corner_radius=20,
+            on_tap_action=None
         ),
         subviews=[
             textView
@@ -171,6 +175,20 @@ def make_list_item(number: int):
     ]
     for constraint in add_constraints:
         list_item.constraints.append(constraint)
+    list_item.configuration.on_tap_action = action.TDCAlertAction(
+        title=f"Alert title of list_item number {number}",
+        message="AlertMessage",
+        options=[
+            action.TDCAlertOption(
+                title="First option",
+                action=None,
+            ),
+            action.TDCAlertOption(
+                title="Second option",
+                action=None,
+            )
+        ]
+    )
     return list_item
 
 def make_tab_bar():
@@ -210,7 +228,8 @@ def make_tab_bar():
         ],
         configuration=TDCBaseViewConfiguration(
             color=ColorPicker.navy.get_color_hex(),
-            corner_radius=0
+            corner_radius=0,
+            on_tap_action=None
         ),
         subviews=[]
     )
@@ -250,7 +269,8 @@ def make_tab_bar():
         ],
         configuration=TDCBaseViewConfiguration(
             color=ColorPicker.navy.get_color_hex(),
-            corner_radius=0
+            corner_radius=0,
+            on_tap_action=None
         ),
         subviews=[]
     )
@@ -290,7 +310,8 @@ def make_tab_bar():
         ],
         configuration=TDCBaseViewConfiguration(
             color=ColorPicker.navy.get_color_hex(),
-            corner_radius=0
+            corner_radius=0,
+            on_tap_action=None
         ),
         subviews=[]
     )
@@ -330,7 +351,8 @@ def make_tab_bar():
         ],
         configuration=TDCBaseViewConfiguration(
             color="#B4B4B4",
-            corner_radius=0
+            corner_radius=0,
+            on_tap_action=None
         ),
         subviews=[
             left_tabbar_item,

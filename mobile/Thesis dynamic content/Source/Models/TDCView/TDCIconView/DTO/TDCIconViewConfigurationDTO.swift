@@ -12,6 +12,7 @@ struct TDCIconViewConfigurationDTO: Decodable {
     let color: String?
     let contentScaleType: ContentScaleType?
     let imageURL: String
+    let onTapAction: TDCActionDTO?
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -19,6 +20,7 @@ struct TDCIconViewConfigurationDTO: Decodable {
         self.cornerRadius = try? container.decode(Int.self, forKey: .cornerRadius)
         self.color = try? container.decode(String.self, forKey: .color)
         let rawScaleType = try? container.decode(String.self, forKey: .contentScaleType)
+        self.onTapAction = try? container.decode(TDCActionDTO.self, forKey: .onTapAction)
         self.contentScaleType = ContentScaleType(rawValue: rawScaleType ?? "") ?? .unknown
         self.imageURL = try container.decode(String.self, forKey: .imageURL)
     }
@@ -30,5 +32,6 @@ extension TDCIconViewConfigurationDTO {
         case color
         case contentScaleType = "content_scale_type"
         case imageURL = "image_url"
+        case onTapAction = "on_tap_action"
     }
 }

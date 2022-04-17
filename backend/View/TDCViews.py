@@ -1,5 +1,6 @@
 from constraints import constraints as c
 from dataclasses import dataclass
+from TDCActions import TDCAction
 import typing
 import abc
 from enum import Enum
@@ -16,7 +17,9 @@ class TDCViewProtocol:
 
 
 """
+======================================
 MARK: - BaseView
+======================================
 """
 
 
@@ -24,6 +27,7 @@ MARK: - BaseView
 class TDCBaseViewConfiguration:
     color: typing.Optional[str]
     corner_radius: typing.Optional[int]
+    on_tap_action: typing.Optional[TDCAction]
 
     def serialize(self) -> dict:
         data = {}
@@ -31,6 +35,8 @@ class TDCBaseViewConfiguration:
             data["color"] = self.color
         if self.corner_radius:
             data["corner_radius"] = self.corner_radius
+        if self.on_tap_action:
+            data["on_tap_action"] = self.on_tap_action.serialize()
         return data
 
 
@@ -52,7 +58,9 @@ class TDCBaseView(TDCViewProtocol):
 
 
 """
+======================================
 MARK: - TextView
+======================================
 """
 
 
@@ -68,6 +76,7 @@ class TDCTextViewConfiguration:
     text_size: typing.Optional[int]
     text: str
     arrangenment: typing.Optional[TDCTextViewArrangenment]
+    on_tap_action: typing.Optional[TDCAction]
 
     def serialize(self) -> dict:
         data = {
@@ -79,6 +88,8 @@ class TDCTextViewConfiguration:
             data["text_size"] = self.text_size
         if self.arrangenment:
             data["arrangenment"] = self.arrangenment.value
+        if self.on_tap_action:
+            data["on_tap_action"] - self.on_tap_action.serialize()
         return data
 
 
@@ -100,8 +111,11 @@ class TDCTextView(TDCViewProtocol):
 
 
 """
+======================================
 MARK: - IconView
+======================================
 """
+
 
 class TDCIconViewScaleType(Enum):
     scale_aspect_fill = "scale_aspect_fill"
@@ -115,6 +129,7 @@ class TDCIconViewConfiguration:
     corner_radius: typing.Optional[int]
     content_scale_type: typing.Optional[TDCIconViewScaleType]
     image_url: str
+    on_tap_action: typing.Optional[TDCAction]
 
     def serialize(self) -> dict:
         data = {
@@ -126,6 +141,8 @@ class TDCIconViewConfiguration:
             data["corner_radius"] = self.corner_radius
         if self.content_scale_type:
             data["content_scale_type"] = self.content_scale_type.value
+        if self.on_tap_action:
+            data["on_tap_action"] - self.on_tap_action.serialize()
         return data
 
 

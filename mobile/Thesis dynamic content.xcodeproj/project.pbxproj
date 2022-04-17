@@ -165,8 +165,8 @@
 		6B0F3FC22807BDAE005D53C5 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				6B0F3FCC2807BE7E005D53C5 /* TDCIconViewConfigurationDTO.swift */,
 				6B0F3FCA2807BDE9005D53C5 /* TDCIconViewDTO.swift */,
+				6B0F3FCC2807BE7E005D53C5 /* TDCIconViewConfigurationDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";

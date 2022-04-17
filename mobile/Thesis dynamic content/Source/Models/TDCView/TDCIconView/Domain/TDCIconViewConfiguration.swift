@@ -12,6 +12,7 @@ struct TDCIconViewConfiguration {
     let color: UIColor?
     let contentScaleType: ContentScaleType
     let imageURL: String
+    let onTapAction: TDCAction?
 }
 
 extension TDCIconViewConfiguration {
@@ -22,6 +23,7 @@ extension TDCIconViewConfiguration {
             ContentScaleType.init(with: $0)
         } ?? .normal
         self.imageURL = dto.imageURL
+        self.onTapAction = dto.onTapAction.flatMap { TDCAction.init(from: $0) }
     }
 }
 

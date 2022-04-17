@@ -12,6 +12,7 @@ struct TDCTextViewConfigurationDTO: Decodable {
     let textSize: Int?
     let arrangenment: TDCTextViewArrangenmentDTO
     let text: String
+    let onTapAction: TDCActionDTO?
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -20,6 +21,7 @@ struct TDCTextViewConfigurationDTO: Decodable {
         self.textSize = try? container.decode(Int.self, forKey: .textSize)
         let rawArrangenment = try? container.decode(String.self, forKey: .arrangenment)
         self.arrangenment = TDCTextViewArrangenmentDTO(rawValue: rawArrangenment ?? "") ?? .unknown
+        self.onTapAction = try? container.decode(TDCActionDTO.self, forKey: .onTapAction)
         self.text = try container.decode(String.self, forKey: .text)
     }
 }
@@ -30,5 +32,6 @@ extension TDCTextViewConfigurationDTO {
         case textSize = "text_size"
         case arrangenment
         case text
+        case onTapAction = "on_tap_action"
     }
 }

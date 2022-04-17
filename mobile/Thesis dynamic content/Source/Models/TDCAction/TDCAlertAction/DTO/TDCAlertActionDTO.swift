@@ -4,7 +4,7 @@ struct TDCAlertActionDTO: Decodable {
     
     struct AlertActionOption: Decodable {
         let title: String
-        let Action: TDCActionDTO?
+        let action: TDCActionDTO?
     }
     
     let title: String

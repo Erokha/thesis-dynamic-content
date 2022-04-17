@@ -21,6 +21,13 @@ class TDCBaseView: TDCViewProtocol {
     
     private var constraints: [TDCConstraint]
     
+    private lazy var gestureRecognizer: UITapGestureRecognizer = {
+        let gestureRecognizer = UITapGestureRecognizer()
+        gestureRecognizer.numberOfTapsRequired = 1
+        gestureRecognizer.addTarget(self, action: #selector(callAction))
+        return gestureRecognizer
+    }()
+    
     var invoker: TDCActionInvokerProxy? {
         didSet {
             subviews.forEach { $0.invoker = invoker }
@@ -62,6 +69,11 @@ class TDCBaseView: TDCViewProtocol {
             UIView.layer.cornerRadius = CGFloat(cornerRadius)
             UIView.clipsToBounds = true
         }
+        
+        UIView.addGestureRecognizer(gestureRecognizer)
     }
-
+    
+    @objc private func callAction() {
+        invoker?.invoke(action: configuration.onTapAction)
+    }
 }

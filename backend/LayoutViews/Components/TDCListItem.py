@@ -75,7 +75,8 @@ class TDCListItem:
                 text_color=self.title_color,
                 text_size=14,
                 text="Test text",
-                arrangenment=None
+                arrangenment=None,
+                on_tap_action=None
             ),
             subviews=[]
         )
@@ -123,7 +124,8 @@ class TDCListItem:
                 color=self.background_color,
                 corner_radius=5,
                 content_scale_type=tdc.TDCIconViewScaleType.scale_aspect_fill,
-                image_url=self.image_url
+                image_url=self.image_url,
+                on_tap_action=None
             ),
             subviews=[]
         )
@@ -142,7 +144,8 @@ class TDCListItem:
             subviews=[],
             configuration=tdc.TDCBaseViewConfiguration(
                 color=self.background_color,
-                corner_radius=10
+                corner_radius=10,
+                on_tap_action=None
             )
         )
 

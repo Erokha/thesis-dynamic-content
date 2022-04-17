@@ -12,6 +12,7 @@ struct TDCTextViewConfiguration {
     let textSize: Int?
     let arrangenment: TDCTextViewArrangenment?
     let text: String
+    let onTapAction: TDCAction?
 }
 
 extension TDCTextViewConfiguration {
@@ -20,6 +21,7 @@ extension TDCTextViewConfiguration {
         self.textSize = dto.textSize
         self.arrangenment = .init(with: dto.arrangenment)
         self.text = dto.text
+        self.onTapAction = dto.onTapAction.flatMap { TDCAction.init(from: $0) }
     }
 }
 
