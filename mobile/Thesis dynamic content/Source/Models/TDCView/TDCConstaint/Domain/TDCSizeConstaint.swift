@@ -10,7 +10,19 @@ struct TDCSizeConstraint {
         case width
     }
     
+    struct RelativeConstraintValue {
+        enum ConstantType {
+            case multiplier(Float)
+            case constaint(Int)
+        }
+        
+        let id: TDCViewID?
+        let type: ConstraintType
+        let value: ConstantType
+    }
+    
     enum ConstraintValue {
         case absoulte(Float)
+        case relative(RelativeConstraintValue)
     }
 }

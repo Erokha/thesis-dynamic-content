@@ -6,6 +6,7 @@ final class TDCTextView: TDCViewProtocol {
     
     private lazy var label: UILabel = {
         let label = UILabel()
+        label.clipsToBounds = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

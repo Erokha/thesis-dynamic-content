@@ -61,6 +61,14 @@ struct TDCConstraintDTOToDomainConverter {
                 value: .absoulte(
                     TDCConstraintDTOToDomainConverter.convertAbsoluteSizeData(from: absoluteDTO))
             )
+        case .relative(let relativeDTO):
+            guard let value = TDCConstraintDTOToDomainConverter.convertRelativeData(from: relativeDTO) else {
+                return nil
+            }
+            return TDCSizeConstraint(
+                type: sizeType,
+                value: .relative(value)
+            )
         case .unknown:
             return nil
         }
@@ -135,5 +143,27 @@ extension TDCConstraintDTOToDomainConverter {
     
     private static func convertAbsoluteSizeData(from dto: TDCSizeConstraintDTO.AbsoluteConstraintData) -> Float {
         return dto.value
+    }
+    
+    private static func convertRelativeData(
+        from dto: TDCSizeConstraintDTO.RelativeConstraintData
+    ) -> TDCSizeConstraint.RelativeConstraintValue? {
+        guard let type = TDCConstraintDTOToDomainConverter.convertSizeType(from: dto.sizeType) else {
+            return nil
+        }
+        if let multiplier = dto.multiplier {
+            return TDCSizeConstraint.RelativeConstraintValue(
+                id: dto.id,
+                type: type,
+                value: .multiplier(multiplier)
+            )
+        } else {
+            return TDCSizeConstraint.RelativeConstraintValue(
+                id: dto.id,
+                type: type,
+                value: .constaint(dto.constant ?? 0)
+            )
+        }
+        
     }
 }

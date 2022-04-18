@@ -11,6 +11,7 @@ class TDCBaseView: TDCViewProtocol {
     weak var superview: TDCViewProtocol?
     var UIView: UIView = {
         let view = UIKit.UIView()
+        view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

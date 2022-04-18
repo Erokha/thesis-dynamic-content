@@ -6,6 +6,7 @@ final class TDCIconView: TDCViewProtocol {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

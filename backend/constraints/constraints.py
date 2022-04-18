@@ -1,4 +1,5 @@
 import abc
+import typing
 from dataclasses import dataclass
 from typing import Optional
 from enum import Enum
@@ -101,26 +102,54 @@ class SizeType(Enum):
     height = "height"
     width = "width"
 
+class RelativeSizeConstraint(Enum):
+    constant = "constant"
+    multiplier = "multiplier"
+
+class SizeConstraintValue:
+    @abc.abstractmethod
+    def serialize(self) -> dict:
+        pass
 
 @dataclass
-class AbsoluteSizeValue:
+class AbsoluteSizeValue(SizeConstraintValue):
     value: int
 
-    def to_dict(self):
+    def serialize(self) -> dict:
         return {
             "type": "absolute",
             "value": self.value,
         }
 
+@dataclass
+class RelativeSizeValue(SizeConstraintValue):
+    id: typing.Optional[str]
+    size_type: SizeType
+    constraintType: RelativeSizeConstraint
+    value: float
+
+    def serialize(self) -> dict:
+        data = {
+            "type": "relative",
+            "size_type": self.size_type.value,
+        }
+        if self.id:
+            data["id"] = self.id
+        if self.constraintType == RelativeSizeConstraint.constant:
+            data["constant"] = int(self.value)
+        elif self.constraintType == RelativeSizeConstraint.multiplier:
+            data["multiplier"] = self.value
+        return data
+
 
 @dataclass
 class SizeConstraint(Constraint):
     size_type: SizeType
-    value: AbsoluteSizeValue
+    value: SizeConstraintValue
 
     def serialize(self) -> dict:
         return {
             "type": "size",
             "size_type": self.size_type.value,
-            "value": self.value.to_dict()
+            "value": self.value.serialize()
         }

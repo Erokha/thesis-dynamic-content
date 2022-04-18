@@ -95,7 +95,7 @@ class TDCListItem:
                     value=constraints.RelativeEdgeValue(
                         id=None,
                         edge=constraints.Edge.top,
-                        constant=10
+                        constant=5
                     )
                 ),
                 constraints.EdgeConstraint(
@@ -103,14 +103,16 @@ class TDCListItem:
                     value=constraints.RelativeEdgeValue(
                         id=None,
                         edge=constraints.Edge.bottom,
-                        constant=-10
+                        constant=-5
                     )
                 ),
                 constraints.SizeConstraint(
                     size_type=constraints.SizeType.width,
-                    value=constraints.AbsoluteSizeValue(
-                        # TODO: fix to relative, that equals self height
-                        value=30
+                    value=constraints.RelativeSizeValue(
+                        id=self.image_view_id(),
+                        size_type=constraints.SizeType.height,
+                        constraintType=constraints.RelativeSizeConstraint.multiplier,
+                        value=1
                     )
                 ),
                 constraints.SideConstraint(

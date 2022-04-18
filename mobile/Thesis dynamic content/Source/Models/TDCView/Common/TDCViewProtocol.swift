@@ -84,22 +84,102 @@ extension TDCViewProtocol {
     private func applyHeightConstraint(_ constraint: TDCSizeConstraint) {
         switch constraint.value {
         case .absoulte(let value):
-            self.UIView
-                .heightAnchor
-                .constraint(equalToConstant: CGFloat(value))
-                .isActive = true
+            applyAbsoluteHeight(value)
+        case .relative(let payload):
+            applyRelativeHeight(payload)
         }
     }
     
     private func applyWidthConstraint(_ constraint: TDCSizeConstraint) {
         switch constraint.value {
         case .absoulte(let value):
-            self.UIView
-                .widthAnchor
-                .constraint(equalToConstant: CGFloat(value))
-                .isActive = true
+            applyAbsoluteWidth(value)
+        case .relative(let payload):
+            applyRelativeWidth(payload)
         }
     }
+    
+    // MARK: - Absolute
+    
+    private func applyAbsoluteHeight(_ value: Float) {
+        self.UIView
+            .heightAnchor
+            .constraint(equalToConstant: CGFloat(value))
+            .isActive = true
+    }
+    
+    private func applyAbsoluteWidth(_ value: Float) {
+        self.UIView
+            .widthAnchor
+            .constraint(equalToConstant: CGFloat(value))
+            .isActive = true
+    }
+    
+    // MARK: - Relative
+    
+    private func applyRelativeHeight(_ value: TDCSizeConstraint.RelativeConstraintValue) {
+        if let id = value.id {
+            guard let relativeView = sameLevelViews.first(where: { $0.id == id }) else {
+                return
+            }
+            applyRelativeData(view: relativeView.UIView, anchor: UIView.heightAnchor, value: value)
+        } else {
+            guard let superview = UIView.superview else {
+                return
+            }
+            applyRelativeData(view: superview, anchor: UIView.heightAnchor, value: value)
+        }
+    }
+    
+    private func applyRelativeWidth(_ value: TDCSizeConstraint.RelativeConstraintValue) {
+        if let id = value.id {
+            guard let relativeView = sameLevelViews.first(where: { $0.id == id }) else {
+                return
+            }
+            applyRelativeData(view: relativeView.UIView, anchor: UIView.widthAnchor, value: value)
+        } else {
+            guard let superview = UIView.superview else {
+                return
+            }
+            applyRelativeData(view: superview, anchor: UIView.widthAnchor, value: value)
+        }
+    }
+    
+    private func applyRelativeData(
+        view: UIView,
+        anchor: NSLayoutDimension,
+        value: TDCSizeConstraint.RelativeConstraintValue
+    ) {
+        switch value.type {
+        case .width:
+            switch value.value {
+            case .multiplier(let payload):
+                anchor.constraint(
+                    equalTo: view.widthAnchor,
+                    multiplier: CGFloat(payload)
+                ).isActive = true
+            case .constaint(let payload):
+                anchor.constraint(
+                    equalTo: view.widthAnchor,
+                    constant: CGFloat(payload)
+                ).isActive = true
+            }
+        case .height:
+            switch value.value {
+            case .multiplier(let payload):
+                anchor.constraint(
+                    equalTo: view.heightAnchor,
+                    multiplier: CGFloat(payload)
+                ).isActive = true
+            case .constaint(let payload):
+                anchor.constraint(
+                    equalTo: view.heightAnchor,
+                    constant: CGFloat(payload)
+                ).isActive = true
+            }
+        }
+    }
+
 }
 
 // MARK: - TDCView + Edge
