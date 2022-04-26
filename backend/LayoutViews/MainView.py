@@ -278,7 +278,22 @@ def make_tab_bar():
         configuration=TDCBaseViewConfiguration(
             color=ColorPicker.navy.get_color_hex(),
             corner_radius=0,
-            on_tap_action=None
+            on_tap_action=action.TDCAlertAction(
+                title="Демонстрация",
+                message="Тут нет действия, но кнопка все еще кликабельна",
+                options=[
+                    action.TDCAlertOption(
+                        title="Понятно",
+                        action=None
+                    ),
+                    action.TDCAlertOption(
+                        title="Нет, я все еще хочу на другой экран",
+                        action=action.TDCTransitAction(
+                            new_url="http://127.0.0.1:5000/detail_view"
+                        )
+                    ),
+                ]
+            )
         ),
         subviews=[]
     )
@@ -319,7 +334,9 @@ def make_tab_bar():
         configuration=TDCBaseViewConfiguration(
             color=ColorPicker.navy.get_color_hex(),
             corner_radius=0,
-            on_tap_action=None
+            on_tap_action=action.TDCTransitAction(
+                new_url="http://127.0.0.1:5000/detail_view"
+            )
         ),
         subviews=[]
     )

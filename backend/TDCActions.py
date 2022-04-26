@@ -46,3 +46,17 @@ class TDCAlertAction(TDCAction):
             "message": self.message,
             "options": [option.serialize() for option in self.options]
         }
+
+"""
+MARK: - Alert
+"""
+
+@dataclass
+class TDCTransitAction(TDCAction):
+    new_url: str
+
+    def serialize(self):
+        return {
+            "type": "transit",
+            "new_url": self.new_url
+        }
