@@ -35,6 +35,8 @@
 		6BACD35927FBB67600FFDDC5 /* TDCEdgeConstaintDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD35827FBB67600FFDDC5 /* TDCEdgeConstaintDTO.swift */; };
 		6BACD35B27FBB68E00FFDDC5 /* TDCSideConstaintDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD35A27FBB68E00FFDDC5 /* TDCSideConstaintDTO.swift */; };
 		6BACD35D27FBB69800FFDDC5 /* TDCSizeConstaintDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD35C27FBB69700FFDDC5 /* TDCSizeConstaintDTO.swift */; };
+		6BC28334281810F400B73F97 /* TDCTransitActionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC28333281810F400B73F97 /* TDCTransitActionDTO.swift */; };
+		6BC2833628183B6300B73F97 /* TDCTransitAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2833528183B6300B73F97 /* TDCTransitAction.swift */; };
 		6BC526B527FD18B70019BE5D /* TDCConstraintConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC526B427FD18B70019BE5D /* TDCConstraintConverter.swift */; };
 		6BC526B827FD24850019BE5D /* LayoutRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC526B727FD24850019BE5D /* LayoutRequestService.swift */; };
 		6BC526BB27FD25100019BE5D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6BC526BA27FD25100019BE5D /* Alamofire */; };
@@ -79,6 +81,8 @@
 		6BACD35827FBB67600FFDDC5 /* TDCEdgeConstaintDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCEdgeConstaintDTO.swift; sourceTree = "<group>"; };
 		6BACD35A27FBB68E00FFDDC5 /* TDCSideConstaintDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCSideConstaintDTO.swift; sourceTree = "<group>"; };
 		6BACD35C27FBB69700FFDDC5 /* TDCSizeConstaintDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCSizeConstaintDTO.swift; sourceTree = "<group>"; };
+		6BC28333281810F400B73F97 /* TDCTransitActionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCTransitActionDTO.swift; sourceTree = "<group>"; };
+		6BC2833528183B6300B73F97 /* TDCTransitAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCTransitAction.swift; sourceTree = "<group>"; };
 		6BC526B427FD18B70019BE5D /* TDCConstraintConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCConstraintConverter.swift; sourceTree = "<group>"; };
 		6BC526B727FD24850019BE5D /* LayoutRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutRequestService.swift; sourceTree = "<group>"; };
 		6BF290A52807BF1200576C56 /* TDCViewDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDCViewDTO.swift; sourceTree = "<group>"; };
@@ -304,6 +308,31 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
+		6BC28330281810C300B73F97 /* TDCTransitAction */ = {
+			isa = PBXGroup;
+			children = (
+				6BC28332281810DF00B73F97 /* Domain */,
+				6BC28331281810D800B73F97 /* DTO */,
+			);
+			path = TDCTransitAction;
+			sourceTree = "<group>";
+		};
+		6BC28331281810D800B73F97 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				6BC28333281810F400B73F97 /* TDCTransitActionDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		6BC28332281810DF00B73F97 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				6BC2833528183B6300B73F97 /* TDCTransitAction.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		6BC526B227FD18910019BE5D /* Converters */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +354,7 @@
 		6BF290AB2809FFF600576C56 /* TDCAction */ = {
 			isa = PBXGroup;
 			children = (
+				6BC28330281810C300B73F97 /* TDCTransitAction */,
 				6BF290AD280A001400576C56 /* TDCAlertAction */,
 				6BF290AC280A000000576C56 /* Common */,
 			);
@@ -464,6 +494,7 @@
 				6BACD31E27FA15D900FFDDC5 /* ViewController.swift in Sources */,
 				6B0F3FCB2807BDE9005D53C5 /* TDCIconViewDTO.swift in Sources */,
 				6BACD35727FBB4D100FFDDC5 /* TDCConstaintDTO.swift in Sources */,
+				6BC28334281810F400B73F97 /* TDCTransitActionDTO.swift in Sources */,
 				6BF290B1280A006100576C56 /* TDCAlertAction.swift in Sources */,
 				6B0F3FA128078077005D53C5 /* TCDTextViewConfigurationDTO.swift in Sources */,
 				6BACD34A27FBAB1400FFDDC5 /* TDCEdgeConstaint.swift in Sources */,
@@ -493,6 +524,7 @@
 				6BF290A72807BF1200576C56 /* TDCViewDTO.swift in Sources */,
 				6BACD35D27FBB69800FFDDC5 /* TDCSizeConstaintDTO.swift in Sources */,
 				6BACD34027FA1E3000FFDDC5 /* TDCBaseViewConfiguration.swift in Sources */,
+				6BC2833628183B6300B73F97 /* TDCTransitAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

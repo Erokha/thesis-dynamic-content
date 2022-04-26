@@ -69,6 +69,10 @@ extension InitialViewController: TDCActionInvokerDelegate {
         }
     }
     
+    func performTransit(_ transit: TDCTransitAction) {
+        requestLayout(url: transit.newURL)
+    }
+    
     
 }
 
@@ -90,6 +94,27 @@ extension InitialViewController {
                     debugPrint("unable to convert tdcview from dto")
                     return
                 }
+                self.tdcView = tdcView
+                self.demoView.addSubview(tdcView.UIView)
+                tdcView.invoker = self.invoker
+                tdcView.layout(on: self.demoView)
+            case .failure:
+                print("error")
+            }
+        }
+    }
+    
+    private func requestLayout(url: String) {
+        let steward = TDCViewConverterSteward()
+        let service = LayoutRequestService()
+        service.requestPage(fullURL: url) { (response) in
+            switch response {
+            case .success(let data):
+                guard let tdcView = steward.covert(dto: data) else {
+                    debugPrint("unable to convert tdcview from dto")
+                    return
+                }
+                self.tdcView?.UIView.removeFromSuperview()
                 self.tdcView = tdcView
                 self.demoView.addSubview(tdcView.UIView)
                 tdcView.invoker = self.invoker

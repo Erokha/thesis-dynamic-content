@@ -40,4 +40,21 @@ extension LayoutRequestService {
             }
         }
     }
+    
+    func requestPage(
+        fullURL: String,
+        closure: @escaping (Result<TDCViewDTO, TDCNetworkError>) -> Void
+    ) {
+        typealias ResultType = Result<TDCViewDTO, TDCNetworkError>
+        let request = AF.request(fullURL)
+        request.responseDecodable(of: TDCViewDTO.self) { (response) in
+            switch response.result {
+            case .success(let data):
+                closure(.success(data))
+            case .failure(let error):
+                debugPrint(error)
+                closure(.failure(.unknown))
+            }
+        }
+    }
 }

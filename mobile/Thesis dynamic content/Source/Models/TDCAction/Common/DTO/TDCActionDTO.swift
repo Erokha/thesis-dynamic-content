@@ -2,6 +2,7 @@ import Foundation
 
 enum TDCActionDTO {
     case alert(TDCAlertActionDTO)
+    case transit(TDCTransitActionDTO)
     case unknown(type: String)
 }
 
@@ -18,6 +19,9 @@ extension TDCActionDTO: Decodable {
         case "alert":
             let payload = try TDCAlertActionDTO(from: decoder)
             self = .alert(payload)
+        case "transit":
+            let payload = try TDCTransitActionDTO(from: decoder)
+            self = .transit(payload)
         default:
             self = .unknown(type: type)
         }

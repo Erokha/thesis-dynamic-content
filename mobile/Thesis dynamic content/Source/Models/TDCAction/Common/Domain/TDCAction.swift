@@ -2,6 +2,7 @@ import Foundation
 
 enum TDCAction {
     case alert(TDCAlertAction)
+    case transit(TDCTransitAction)
 }
 
 extension TDCAction {
@@ -9,6 +10,8 @@ extension TDCAction {
         switch dto {
         case .alert(let payload):
             self = .alert(TDCAction.convertAlertAction(from: payload))
+        case .transit(let payload):
+            self = .transit(TDCTransitAction(from: payload))
         case .unknown(let type):
             debugPrint("unable to convert to domain dto with type: \(type)")
             return nil
