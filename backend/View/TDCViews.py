@@ -161,3 +161,46 @@ class TDCIconView(TDCViewProtocol):
             "subviews": [subview.serialize() for subview in self.subviews],
             "constraints": [constraint.serialize() for constraint in self.constraints]
         }
+
+
+"""
+======================================
+MARK: - Stack View
+======================================
+"""
+
+
+class TDCStackViewDirection(Enum):
+    vertical = "vertical"
+    horizontal = "horizontal"
+
+
+@dataclass
+class TDCStackViewConfiguration:
+    spacing: typing.Optional[int]
+    direction: TDCStackViewDirection
+
+    def serialize(self) -> dict:
+        data = {
+            "direction": self.direction.value
+        }
+        if self.spacing:
+            data["spacing"] = self.spacing
+        return data
+
+
+@dataclass
+class TDCStackView(TDCViewProtocol):
+    id: str
+    constraints: typing.List[c.Constraint]
+    configuration: TDCStackViewConfiguration
+    subviews: typing.List[TDCViewProtocol]
+
+    def serialize(self) -> dict:
+        return {
+            "type": "stack_view",
+            "id": self.id,
+            "configuration": self.configuration.serialize(),
+            "subviews": [subview.serialize() for subview in self.subviews],
+            "constraints": [constraint.serialize() for constraint in self.constraints]
+        }
