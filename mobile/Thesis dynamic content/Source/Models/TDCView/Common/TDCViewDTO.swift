@@ -5,6 +5,7 @@ struct TDCViewDTO: Decodable {
         case TDCBaseViewDTO(TDCBaseViewDTO)
         case TDCTextViewDTO(TDCTextViewDTO)
         case TDCIconViewDTO(TDCIconViewDTO)
+        case TDCStackView(TDCStackViewDTO)
         case unknown
     }
     
@@ -29,6 +30,9 @@ struct TDCViewDTO: Decodable {
         case "icon_view":
             let payload = try TDCIconViewDTO(from: decoder)
             self.value = .TDCIconViewDTO(payload)
+        case "stack_view":
+            let payload = try TDCStackViewDTO(from: decoder)
+            self.value = .TDCStackView(payload)
         default:
             self.value = .unknown
         }

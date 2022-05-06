@@ -16,6 +16,10 @@
 		6B0F3FC72807BDD2005D53C5 /* TDCIconViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0F3FC62807BDD2005D53C5 /* TDCIconViewConfiguration.swift */; };
 		6B0F3FCB2807BDE9005D53C5 /* TDCIconViewDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0F3FCA2807BDE9005D53C5 /* TDCIconViewDTO.swift */; };
 		6B0F3FCD2807BE7E005D53C5 /* TDCIconViewConfigurationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0F3FCC2807BE7E005D53C5 /* TDCIconViewConfigurationDTO.swift */; };
+		6BA7D40E2825D796009CDE89 /* TDCStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7D40D2825D796009CDE89 /* TDCStackView.swift */; };
+		6BA7D4102825D7F0009CDE89 /* TDCStackViewDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7D40F2825D7F0009CDE89 /* TDCStackViewDTO.swift */; };
+		6BA7D4122825D801009CDE89 /* TDCStackViewConfigurationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7D4112825D801009CDE89 /* TDCStackViewConfigurationDTO.swift */; };
+		6BA7D4142825E91F009CDE89 /* TDCStackViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7D4132825E91F009CDE89 /* TDCStackViewConfiguration.swift */; };
 		6BACD31A27FA15D900FFDDC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD31927FA15D900FFDDC5 /* AppDelegate.swift */; };
 		6BACD31C27FA15D900FFDDC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD31B27FA15D900FFDDC5 /* SceneDelegate.swift */; };
 		6BACD31E27FA15D900FFDDC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACD31D27FA15D900FFDDC5 /* ViewController.swift */; };
@@ -60,6 +64,10 @@
 		6B0F3FC62807BDD2005D53C5 /* TDCIconViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDCIconViewConfiguration.swift; sourceTree = "<group>"; };
 		6B0F3FCA2807BDE9005D53C5 /* TDCIconViewDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDCIconViewDTO.swift; sourceTree = "<group>"; };
 		6B0F3FCC2807BE7E005D53C5 /* TDCIconViewConfigurationDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDCIconViewConfigurationDTO.swift; sourceTree = "<group>"; };
+		6BA7D40D2825D796009CDE89 /* TDCStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCStackView.swift; sourceTree = "<group>"; };
+		6BA7D40F2825D7F0009CDE89 /* TDCStackViewDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCStackViewDTO.swift; sourceTree = "<group>"; };
+		6BA7D4112825D801009CDE89 /* TDCStackViewConfigurationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCStackViewConfigurationDTO.swift; sourceTree = "<group>"; };
+		6BA7D4132825E91F009CDE89 /* TDCStackViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCStackViewConfiguration.swift; sourceTree = "<group>"; };
 		6BACD31627FA15D900FFDDC5 /* Thesis dynamic content.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Thesis dynamic content.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BACD31927FA15D900FFDDC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BACD31B27FA15D900FFDDC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +145,7 @@
 		6B0F3FA528078D0B005D53C5 /* TDCView */ = {
 			isa = PBXGroup;
 			children = (
+				6BA7D4092825D702009CDE89 /* TDCStackView */,
 				6BACD33727FA1C7A00FFDDC5 /* TDCBaseView */,
 				6B0F3FC12807BDA4005D53C5 /* TDCIconView */,
 				6B0F3F9928077A2D005D53C5 /* TDCTextView */,
@@ -182,6 +191,33 @@
 				6B0F3FC62807BDD2005D53C5 /* TDCIconViewConfiguration.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		6BA7D4092825D702009CDE89 /* TDCStackView */ = {
+			isa = PBXGroup;
+			children = (
+				6BA7D40A2825D710009CDE89 /* Domain */,
+				6BA7D40B2825D719009CDE89 /* DTO */,
+			);
+			path = TDCStackView;
+			sourceTree = "<group>";
+		};
+		6BA7D40A2825D710009CDE89 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				6BA7D40D2825D796009CDE89 /* TDCStackView.swift */,
+				6BA7D4132825E91F009CDE89 /* TDCStackViewConfiguration.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		6BA7D40B2825D719009CDE89 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				6BA7D40F2825D7F0009CDE89 /* TDCStackViewDTO.swift */,
+				6BA7D4112825D801009CDE89 /* TDCStackViewConfigurationDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		6BACD30D27FA15D900FFDDC5 = {
@@ -519,10 +555,14 @@
 				6BACD35927FBB67600FFDDC5 /* TDCEdgeConstaintDTO.swift in Sources */,
 				6B0F3F9F28077F64005D53C5 /* TDCTextViewDTO.swift in Sources */,
 				6BF290A82807BF1200576C56 /* TDCViewConverterSteward.swift in Sources */,
+				6BA7D4142825E91F009CDE89 /* TDCStackViewConfiguration.swift in Sources */,
+				6BA7D4122825D801009CDE89 /* TDCStackViewConfigurationDTO.swift in Sources */,
 				6B0F3FA3280781B2005D53C5 /* TDCTextViewConfiguration.swift in Sources */,
 				6B0F3FC72807BDD2005D53C5 /* TDCIconViewConfiguration.swift in Sources */,
 				6BF290A72807BF1200576C56 /* TDCViewDTO.swift in Sources */,
+				6BA7D40E2825D796009CDE89 /* TDCStackView.swift in Sources */,
 				6BACD35D27FBB69800FFDDC5 /* TDCSizeConstaintDTO.swift in Sources */,
+				6BA7D4102825D7F0009CDE89 /* TDCStackViewDTO.swift in Sources */,
 				6BACD34027FA1E3000FFDDC5 /* TDCBaseViewConfiguration.swift in Sources */,
 				6BC2833628183B6300B73F97 /* TDCTransitAction.swift in Sources */,
 			);
