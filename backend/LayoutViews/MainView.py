@@ -208,14 +208,14 @@ def make_list_item(number: int):
                 id=None
             )
         ),
-        EdgeConstraint(
-            edge=Edge.top,
-            value=RelativeEdgeValue(
-                edge=Edge.bottom,
-                constant=35 if number == 1 else 20,
-                id= "main_header" if number == 1 else f"list_item_{number - 1}",
-            )
-        )
+        # EdgeConstraint(
+        #     edge=Edge.top,
+        #     value=RelativeEdgeValue(
+        #         edge=Edge.bottom,
+        #         constant=35 if number == 1 else 20,
+        #         id= "main_header" if number == 1 else f"list_item_{number - 1}",
+        #     )
+        # )
     ]
     for constraint in add_constraints:
         list_item.constraints.append(constraint)
@@ -427,15 +427,63 @@ def make_tab_bar():
         ]
     )
 
-def make_main_view():
-    view = make_background_view()
-    view.subviews = [
-        make_header_view(),
+def make_stack_view():
+    items = [
         make_list_item(1),
         make_list_item(2),
         make_list_item(3),
         make_list_item(4),
         make_list_item(5),
+        make_list_item(6),
+        make_list_item(7),
+        make_list_item(8),
+    ]
+    stack_view = TDCStackView(
+        id="stack_view",
+        constraints=[
+            EdgeConstraint(
+                edge=Edge.top,
+                value=RelativeEdgeValue(
+                    edge=Edge.bottom,
+                    constant=35,
+                    id="main_header"
+                )
+            ),
+            SideConstraint(
+                side=Side.left,
+                value=RelativeSideValue(
+                    id=None,
+                    side=Side.left,
+                    constant=0
+                )
+            ),
+            SideConstraint(
+                side=Side.right,
+                value=RelativeSideValue(
+                    id=None,
+                    side=Side.right,
+                    constant=0
+                )
+            ),
+            EdgeConstraint(
+                edge=Edge.bottom,
+                value=RelativeEdgeValue(
+                    edge=Edge.top,
+                    constant=-10,
+                    id="tab_bar"
+                )
+            )
+        ],
+        configuration=TDCStackViewConfiguration(spacing=10, direction=TDCStackViewDirection.vertical),
+        subviews=items
+    )
+    return stack_view
+
+def make_main_view():
+    view = make_background_view()
+    view.subviews = [
+        make_header_view(),
+        make_stack_view(),
         make_tab_bar()
     ]
     return view

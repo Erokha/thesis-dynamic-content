@@ -7,7 +7,7 @@ class TDCStackView: TDCViewProtocol {
     private lazy var scrollView: UIScrollView = {
         let view = UIScrollView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        
+        view.clipsToBounds = true
         return view
     }()
     
@@ -19,7 +19,11 @@ class TDCStackView: TDCViewProtocol {
     
     var UIView: UIView { scrollView }
     
-    var invoker: TDCActionInvokerProxy?
+    var invoker: TDCActionInvokerProxy? {
+        didSet {
+            subviews.forEach { $0.invoker = invoker }
+        }
+    }
     
     var subviews: [TDCViewProtocol]
     
@@ -51,10 +55,11 @@ class TDCStackView: TDCViewProtocol {
         scrollView.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
-            stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
     }
     
@@ -73,14 +78,16 @@ class TDCStackView: TDCViewProtocol {
     private func applyConfiguration() {
         switch configuration.direction {
         case .vertical:
-            self.stackView.axis = .vertical
+            stackView.axis = .vertical
         case .horizontal:
-            self.stackView.axis = .horizontal
+            stackView.axis = .horizontal
         }
         
         if let spacing = configuration.spacing {
-            self.stackView.spacing = CGFloat(spacing)
+            stackView.spacing = CGFloat(spacing)
         }
+        
+        stackView.alignment = .center
     }
     
 }
