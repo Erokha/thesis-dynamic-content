@@ -10,7 +10,7 @@ def main_view():
     view = make_main_view()
     return js.getJSON(view.serialize())
 
-@app.route('/detail_view')
+@app.route('/profile_view')
 def detail_view():
     view = make_detail_view()
     return js.getJSON(view.serialize())

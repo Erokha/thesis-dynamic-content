@@ -3,6 +3,8 @@ from View.TDCViews import *
 from LayoutViews.Components.ColorPicker import ColorPicker
 import LayoutViews.Components.TDCListItem as li
 import TDCActions as action
+import LayoutViews.Components.TDCTabbar as tab_bar
+
 
 list_item_spacing = 20
 
@@ -152,7 +154,7 @@ def make_header_view():
             SizeConstraint(
                 size_type=SizeType.height,
                 value=AbsoluteSizeValue(
-                    value=160
+                    value=140
                 )
             ),
             SideConstraint(
@@ -173,7 +175,7 @@ def make_header_view():
             )
         ],
         configuration=TDCBaseViewConfiguration(
-            color=ColorPicker.navy.get_color_hex(),
+            color="#008000",
             corner_radius=20,
             on_tap_action=None
         ),
@@ -208,14 +210,6 @@ def make_list_item(number: int):
                 id=None
             )
         ),
-        # EdgeConstraint(
-        #     edge=Edge.top,
-        #     value=RelativeEdgeValue(
-        #         edge=Edge.bottom,
-        #         constant=35 if number == 1 else 20,
-        #         id= "main_header" if number == 1 else f"list_item_{number - 1}",
-        #     )
-        # )
     ]
     for constraint in add_constraints:
         list_item.constraints.append(constraint)
@@ -239,194 +233,6 @@ def make_list_item(number: int):
     )
     return list_item
 
-
-def make_tab_bar():
-    left_tabbar_item = TDCBaseView(
-        id=f"tab_bar_item_left",
-        constraints=[
-            EdgeConstraint(
-                edge=Edge.bottom,
-                value=RelativeEdgeValue(
-                    id=None,
-                    edge=Edge.bottom,
-                    constant=-10
-                )
-            ),
-            EdgeConstraint(
-                edge=Edge.top,
-                value=RelativeEdgeValue(
-                    id=None,
-                    edge=Edge.top,
-                    constant=10
-                )
-            ),
-            SideConstraint(
-                side=Side.left,
-                value=RelativeSideValue(
-                    id=None,
-                    side=Side.left,
-                    constant=20
-                )
-            ),
-            SizeConstraint(
-                size_type=SizeType.width,
-                value=AbsoluteSizeValue(
-                    value=25
-                )
-            )
-        ],
-        configuration=TDCBaseViewConfiguration(
-            color=ColorPicker.navy.get_color_hex(),
-            corner_radius=0,
-            on_tap_action=action.TDCAlertAction(
-                title="Демонстрация",
-                message="Тут нет действия, но кнопка все еще кликабельна",
-                options=[
-                    action.TDCAlertOption(
-                        title="Понятно",
-                        action=None
-                    ),
-                    action.TDCAlertOption(
-                        title="Нет, я все еще хочу на другой экран",
-                        action=action.TDCTransitAction(
-                            new_url="http://127.0.0.1:5000/detail_view"
-                        )
-                    ),
-                ]
-            )
-        ),
-        subviews=[]
-    )
-    middle_tabbar_item = TDCBaseView(
-        id=f"tab_bar_item_middle",
-        constraints=[
-            EdgeConstraint(
-                edge=Edge.bottom,
-                value=RelativeEdgeValue(
-                    id=None,
-                    edge=Edge.bottom,
-                    constant=-10
-                )
-            ),
-            EdgeConstraint(
-                edge=Edge.top,
-                value=RelativeEdgeValue(
-                    id=None,
-                    edge=Edge.top,
-                    constant=10
-                )
-            ),
-            SideConstraint(
-                side=Side.left,
-                value=RelativeSideValue(
-                    id=None,
-                    side=Side.left,
-                    constant=145
-                )
-            ),
-            SizeConstraint(
-                size_type=SizeType.width,
-                value=AbsoluteSizeValue(
-                    value=25
-                )
-            )
-        ],
-        configuration=TDCBaseViewConfiguration(
-            color=ColorPicker.navy.get_color_hex(),
-            corner_radius=0,
-            on_tap_action=action.TDCTransitAction(
-                new_url="http://127.0.0.1:5000/detail_view"
-            )
-        ),
-        subviews=[]
-    )
-    right_tabbar_item = TDCBaseView(
-        id=f"tab_bar_item_right",
-        constraints=[
-            EdgeConstraint(
-                edge=Edge.bottom,
-                value=RelativeEdgeValue(
-                    id=None,
-                    edge=Edge.bottom,
-                    constant=-10
-                )
-            ),
-            EdgeConstraint(
-                edge=Edge.top,
-                value=RelativeEdgeValue(
-                    id=None,
-                    edge=Edge.top,
-                    constant=10
-                )
-            ),
-            SideConstraint(
-                side=Side.right,
-                value=RelativeSideValue(
-                    id=None,
-                    side=Side.right,
-                    constant=-20
-                )
-            ),
-            SizeConstraint(
-                size_type=SizeType.width,
-                value=AbsoluteSizeValue(
-                    value=25
-                )
-            )
-        ],
-        configuration=TDCBaseViewConfiguration(
-            color=ColorPicker.navy.get_color_hex(),
-            corner_radius=0,
-            on_tap_action=None
-        ),
-        subviews=[]
-    )
-    return TDCBaseView(
-        id=f"tab_bar",
-        constraints=[
-            EdgeConstraint(
-                edge=Edge.bottom,
-                value=RelativeEdgeValue(
-                    id=None,
-                    edge=Edge.bottom,
-                    constant=0
-                )
-            ),
-            SizeConstraint(
-                size_type=SizeType.height,
-                value=AbsoluteSizeValue(
-                    value=45
-                )
-            ),
-            SideConstraint(
-                side=Side.left,
-                value=RelativeSideValue(
-                    id=None,
-                    side=Side.left,
-                    constant=0
-                )
-            ),
-            SideConstraint(
-                side=Side.right,
-                value=RelativeSideValue(
-                    id=None,
-                    side=Side.right,
-                    constant=0
-                )
-            )
-        ],
-        configuration=TDCBaseViewConfiguration(
-            color="#B4B4B4",
-            corner_radius=0,
-            on_tap_action=None
-        ),
-        subviews=[
-            left_tabbar_item,
-            middle_tabbar_item,
-            right_tabbar_item
-        ]
-    )
-
 def make_stack_view():
     items = [
         make_list_item(1),
@@ -445,7 +251,7 @@ def make_stack_view():
                 edge=Edge.top,
                 value=RelativeEdgeValue(
                     edge=Edge.bottom,
-                    constant=35,
+                    constant=50,
                     id="main_header"
                 )
             ),
@@ -481,9 +287,10 @@ def make_stack_view():
 
 def make_main_view():
     view = make_background_view()
+    bar = tab_bar.TDCTabBar()
     view.subviews = [
         make_header_view(),
         make_stack_view(),
-        make_tab_bar()
+        bar.make_tab_bar(page=bar.Page.main_page)
     ]
     return view
