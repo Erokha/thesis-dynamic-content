@@ -233,17 +233,17 @@ def make_list_item(number: int):
     )
     return list_item
 
+items = [
+    make_list_item(1),
+    make_list_item(2),
+    make_list_item(3),
+    make_list_item(4),
+    make_list_item(5),
+    make_list_item(6),
+    make_list_item(7),
+    make_list_item(8),
+]
 def make_stack_view():
-    items = [
-        make_list_item(1),
-        make_list_item(2),
-        make_list_item(3),
-        make_list_item(4),
-        make_list_item(5),
-        make_list_item(6),
-        make_list_item(7),
-        make_list_item(8),
-    ]
     stack_view = TDCStackView(
         id="stack_view",
         constraints=[

@@ -1,5 +1,6 @@
 import UIKit
 
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -7,8 +8,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = InitialViewController()
+        let viewController = prepareDemoViewController()
+        window?.rootViewController = viewController
         window?.makeKeyAndVisible()
+    }
+    
+    private func prepareResearchViewController() -> UIViewController {
+        let viewController = ResearchRunnerViewController()
+        viewController.strategy = DTOMockGeneratorStrategy()
+        return viewController
+    }
+    
+    private func prepareDemoViewController() -> UIViewController {
+        return InitialViewController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

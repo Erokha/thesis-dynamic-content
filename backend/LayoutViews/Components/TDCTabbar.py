@@ -54,7 +54,7 @@ class TDCTabBar:
                 color=ColorPicker.navy.get_color_hex() if page == self.Page.main_page else ColorPicker.mint.get_color_hex(),
                 corner_radius=0,
                 on_tap_action=None if page == self.Page.main_page else action.TDCTransitAction(
-                    new_url="http://127.0.0.1:5000/main_view"
+                    new_url="http:/localhost:5000/main_view"
                 )
             ),
             subviews=[]

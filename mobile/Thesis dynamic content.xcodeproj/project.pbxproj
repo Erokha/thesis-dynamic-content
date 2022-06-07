@@ -16,6 +16,16 @@
 		6B0F3FC72807BDD2005D53C5 /* TDCIconViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0F3FC62807BDD2005D53C5 /* TDCIconViewConfiguration.swift */; };
 		6B0F3FCB2807BDE9005D53C5 /* TDCIconViewDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0F3FCA2807BDE9005D53C5 /* TDCIconViewDTO.swift */; };
 		6B0F3FCD2807BE7E005D53C5 /* TDCIconViewConfigurationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0F3FCC2807BE7E005D53C5 /* TDCIconViewConfigurationDTO.swift */; };
+		6B463A762842FAA200BDB071 /* TimeResultCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B463A752842FAA200BDB071 /* TimeResultCalculator.swift */; };
+		6B6D68652840420400159021 /* ResearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6D68642840420400159021 /* ResearchViewController.swift */; };
+		6B6D6868284045A100159021 /* DomainMockGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6D6867284045A100159021 /* DomainMockGenerator.swift */; };
+		6B6D687228404E1B00159021 /* Thesis_dynamic_contentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6D687128404E1B00159021 /* Thesis_dynamic_contentTests.swift */; };
+		6B6D687A28404EF500159021 /* ResearchRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6D686928404C1D00159021 /* ResearchRunner.swift */; };
+		6B6D687E2842AF6400159021 /* DTOMockGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6D687D2842AF6400159021 /* DTOMockGenerator.swift */; };
+		6B6D68812842B8AA00159021 /* MockGeneratorStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6D68802842B8AA00159021 /* MockGeneratorStrategy.swift */; };
+		6B6D68842842B96600159021 /* DomainMockGeneratorStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6D68832842B96600159021 /* DomainMockGeneratorStrategy.swift */; };
+		6B6D68872842BA8300159021 /* DTOMockGeneratorStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6D68862842BA8300159021 /* DTOMockGeneratorStrategy.swift */; };
+		6B6D68892842C10C00159021 /* TimeEllapser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6D68882842C10C00159021 /* TimeEllapser.swift */; };
 		6BA7D40E2825D796009CDE89 /* TDCStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7D40D2825D796009CDE89 /* TDCStackView.swift */; };
 		6BA7D4102825D7F0009CDE89 /* TDCStackViewDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7D40F2825D7F0009CDE89 /* TDCStackViewDTO.swift */; };
 		6BA7D4122825D801009CDE89 /* TDCStackViewConfigurationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA7D4112825D801009CDE89 /* TDCStackViewConfigurationDTO.swift */; };
@@ -54,6 +64,16 @@
 		6BF290BE280BD45E00576C56 /* TDCAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF290BD280BD45E00576C56 /* TDCAction.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6B6D687328404E1B00159021 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BACD30E27FA15D900FFDDC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6BACD31527FA15D900FFDDC5;
+			remoteInfo = "Thesis dynamic content";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		6B0F3F9B28077CC9005D53C5 /* TDCTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCTextView.swift; sourceTree = "<group>"; };
 		6B0F3F9E28077F64005D53C5 /* TDCTextViewDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCTextViewDTO.swift; sourceTree = "<group>"; };
@@ -64,6 +84,17 @@
 		6B0F3FC62807BDD2005D53C5 /* TDCIconViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDCIconViewConfiguration.swift; sourceTree = "<group>"; };
 		6B0F3FCA2807BDE9005D53C5 /* TDCIconViewDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDCIconViewDTO.swift; sourceTree = "<group>"; };
 		6B0F3FCC2807BE7E005D53C5 /* TDCIconViewConfigurationDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDCIconViewConfigurationDTO.swift; sourceTree = "<group>"; };
+		6B463A752842FAA200BDB071 /* TimeResultCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeResultCalculator.swift; sourceTree = "<group>"; };
+		6B6D68642840420400159021 /* ResearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchViewController.swift; sourceTree = "<group>"; };
+		6B6D6867284045A100159021 /* DomainMockGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainMockGenerator.swift; sourceTree = "<group>"; };
+		6B6D686928404C1D00159021 /* ResearchRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchRunner.swift; sourceTree = "<group>"; };
+		6B6D686F28404E1B00159021 /* Thesis dynamic contentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Thesis dynamic contentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B6D687128404E1B00159021 /* Thesis_dynamic_contentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thesis_dynamic_contentTests.swift; sourceTree = "<group>"; };
+		6B6D687D2842AF6400159021 /* DTOMockGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOMockGenerator.swift; sourceTree = "<group>"; };
+		6B6D68802842B8AA00159021 /* MockGeneratorStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGeneratorStrategy.swift; sourceTree = "<group>"; };
+		6B6D68832842B96600159021 /* DomainMockGeneratorStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainMockGeneratorStrategy.swift; sourceTree = "<group>"; };
+		6B6D68862842BA8300159021 /* DTOMockGeneratorStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOMockGeneratorStrategy.swift; sourceTree = "<group>"; };
+		6B6D68882842C10C00159021 /* TimeEllapser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEllapser.swift; sourceTree = "<group>"; };
 		6BA7D40D2825D796009CDE89 /* TDCStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCStackView.swift; sourceTree = "<group>"; };
 		6BA7D40F2825D7F0009CDE89 /* TDCStackViewDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCStackViewDTO.swift; sourceTree = "<group>"; };
 		6BA7D4112825D801009CDE89 /* TDCStackViewConfigurationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDCStackViewConfigurationDTO.swift; sourceTree = "<group>"; };
@@ -104,6 +135,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6B6D686C28404E1B00159021 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BACD31327FA15D900FFDDC5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -193,6 +231,80 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
+		6B463A772843084200BDB071 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6B6D68642840420400159021 /* ResearchViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6B6D68622840418200159021 /* Research */ = {
+			isa = PBXGroup;
+			children = (
+				6B6D686928404C1D00159021 /* ResearchRunner.swift */,
+				6B463A772843084200BDB071 /* ViewControllers */,
+				6B6D68882842C10C00159021 /* TimeEllapser.swift */,
+				6B463A752842FAA200BDB071 /* TimeResultCalculator.swift */,
+				6B6D687C2842AF4000159021 /* MockGenerators */,
+			);
+			path = Research;
+			sourceTree = "<group>";
+		};
+		6B6D68632840419800159021 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				6BACD33327FA1C3100FFDDC5 /* Source */,
+				6B6D68622840418200159021 /* Research */,
+				6BACD31D27FA15D900FFDDC5 /* ViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		6B6D687028404E1B00159021 /* Thesis dynamic contentTests */ = {
+			isa = PBXGroup;
+			children = (
+				6B6D687128404E1B00159021 /* Thesis_dynamic_contentTests.swift */,
+			);
+			path = "Thesis dynamic contentTests";
+			sourceTree = "<group>";
+		};
+		6B6D687C2842AF4000159021 /* MockGenerators */ = {
+			isa = PBXGroup;
+			children = (
+				6B6D687F2842B89600159021 /* Strategy */,
+			);
+			path = MockGenerators;
+			sourceTree = "<group>";
+		};
+		6B6D687F2842B89600159021 /* Strategy */ = {
+			isa = PBXGroup;
+			children = (
+				6B6D68852842BA5200159021 /* DTOGeneratorStrategy */,
+				6B6D68822842B94B00159021 /* DomainGeneratorStrategy */,
+				6B6D68802842B8AA00159021 /* MockGeneratorStrategy.swift */,
+			);
+			path = Strategy;
+			sourceTree = "<group>";
+		};
+		6B6D68822842B94B00159021 /* DomainGeneratorStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				6B6D6867284045A100159021 /* DomainMockGenerator.swift */,
+				6B6D68832842B96600159021 /* DomainMockGeneratorStrategy.swift */,
+			);
+			path = DomainGeneratorStrategy;
+			sourceTree = "<group>";
+		};
+		6B6D68852842BA5200159021 /* DTOGeneratorStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				6B6D687D2842AF6400159021 /* DTOMockGenerator.swift */,
+				6B6D68862842BA8300159021 /* DTOMockGeneratorStrategy.swift */,
+			);
+			path = DTOGeneratorStrategy;
+			sourceTree = "<group>";
+		};
 		6BA7D4092825D702009CDE89 /* TDCStackView */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				6BACD31827FA15D900FFDDC5 /* Thesis dynamic content */,
+				6B6D687028404E1B00159021 /* Thesis dynamic contentTests */,
 				6BACD31727FA15D900FFDDC5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -232,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				6BACD31627FA15D900FFDDC5 /* Thesis dynamic content.app */,
+				6B6D686F28404E1B00159021 /* Thesis dynamic contentTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,9 +353,8 @@
 		6BACD31827FA15D900FFDDC5 /* Thesis dynamic content */ = {
 			isa = PBXGroup;
 			children = (
+				6B6D68632840419800159021 /* Core */,
 				6BACD32D27FA18F100FFDDC5 /* Application */,
-				6BACD33327FA1C3100FFDDC5 /* Source */,
-				6BACD31D27FA15D900FFDDC5 /* ViewController.swift */,
 			);
 			path = "Thesis dynamic content";
 			sourceTree = "<group>";
@@ -450,6 +563,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6B6D686E28404E1B00159021 /* Thesis dynamic contentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B6D687528404E1B00159021 /* Build configuration list for PBXNativeTarget "Thesis dynamic contentTests" */;
+			buildPhases = (
+				6B6D686B28404E1B00159021 /* Sources */,
+				6B6D686C28404E1B00159021 /* Frameworks */,
+				6B6D686D28404E1B00159021 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6B6D687428404E1B00159021 /* PBXTargetDependency */,
+			);
+			name = "Thesis dynamic contentTests";
+			productName = "Thesis dynamic contentTests";
+			productReference = 6B6D686F28404E1B00159021 /* Thesis dynamic contentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		6BACD31527FA15D900FFDDC5 /* Thesis dynamic content */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6BACD32A27FA15DB00FFDDC5 /* Build configuration list for PBXNativeTarget "Thesis dynamic content" */;
@@ -480,6 +611,10 @@
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
+					6B6D686E28404E1B00159021 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 6BACD31527FA15D900FFDDC5;
+					};
 					6BACD31527FA15D900FFDDC5 = {
 						CreatedOnToolsVersion = 13.1;
 					};
@@ -502,11 +637,19 @@
 			projectRoot = "";
 			targets = (
 				6BACD31527FA15D900FFDDC5 /* Thesis dynamic content */,
+				6B6D686E28404E1B00159021 /* Thesis dynamic contentTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6B6D686D28404E1B00159021 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BACD31427FA15D900FFDDC5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -519,37 +662,54 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6B6D686B28404E1B00159021 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B6D687228404E1B00159021 /* Thesis_dynamic_contentTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BACD31227FA15D900FFDDC5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6BACD35027FBACF200FFDDC5 /* TDCConstraint.swift in Sources */,
+				6B6D687A28404EF500159021 /* ResearchRunner.swift in Sources */,
 				6BACD34C27FBABFB00FFDDC5 /* TDCSizeConstaint.swift in Sources */,
 				6BACD33E27FA1E1F00FFDDC5 /* TDCBaseView.swift in Sources */,
 				6B0F3F9C28077CC9005D53C5 /* TDCTextView.swift in Sources */,
 				6BACD31E27FA15D900FFDDC5 /* ViewController.swift in Sources */,
 				6B0F3FCB2807BDE9005D53C5 /* TDCIconViewDTO.swift in Sources */,
+				6B6D68812842B8AA00159021 /* MockGeneratorStrategy.swift in Sources */,
+				6B6D68652840420400159021 /* ResearchViewController.swift in Sources */,
 				6BACD35727FBB4D100FFDDC5 /* TDCConstaintDTO.swift in Sources */,
 				6BC28334281810F400B73F97 /* TDCTransitActionDTO.swift in Sources */,
+				6B6D6868284045A100159021 /* DomainMockGenerator.swift in Sources */,
 				6BF290B1280A006100576C56 /* TDCAlertAction.swift in Sources */,
 				6B0F3FA128078077005D53C5 /* TCDTextViewConfigurationDTO.swift in Sources */,
 				6BACD34A27FBAB1400FFDDC5 /* TDCEdgeConstaint.swift in Sources */,
 				6BF290B3280A008300576C56 /* TDCAlertActionDTO.swift in Sources */,
 				6BACD31A27FA15D900FFDDC5 /* AppDelegate.swift in Sources */,
 				6BF290B9280BD00600576C56 /* TDCActionInvoker.swift in Sources */,
+				6B6D687E2842AF6400159021 /* DTOMockGenerator.swift in Sources */,
 				6BACD35B27FBB68E00FFDDC5 /* TDCSideConstaintDTO.swift in Sources */,
 				6BACD34527FA218800FFDDC5 /* UIColor.swift in Sources */,
 				6B0F3FC52807BDC7005D53C5 /* TDCIconView.swift in Sources */,
 				6B0F3FCD2807BE7E005D53C5 /* TDCIconViewConfigurationDTO.swift in Sources */,
 				6BACD35227FBB05300FFDDC5 /* TDCViewProtocol.swift in Sources */,
+				6B6D68842842B96600159021 /* DomainMockGeneratorStrategy.swift in Sources */,
 				6BACD33627FA1C4400FFDDC5 /* TDCBaseViewDTO.swift in Sources */,
+				6B463A762842FAA200BDB071 /* TimeResultCalculator.swift in Sources */,
 				6BF290BE280BD45E00576C56 /* TDCAction.swift in Sources */,
 				6BF290BC280BD12100576C56 /* NSLock.swift in Sources */,
+				6B6D68872842BA8300159021 /* DTOMockGeneratorStrategy.swift in Sources */,
 				6BC526B527FD18B70019BE5D /* TDCConstraintConverter.swift in Sources */,
 				6BC526B827FD24850019BE5D /* LayoutRequestService.swift in Sources */,
 				6BACD34E27FBAC7E00FFDDC5 /* TDCSideConstaint.swift in Sources */,
 				6BACD31C27FA15D900FFDDC5 /* SceneDelegate.swift in Sources */,
 				6BACD33927FA1CDD00FFDDC5 /* TDCBaseViewConfigurationDTO.swift in Sources */,
+				6B6D68892842C10C00159021 /* TimeEllapser.swift in Sources */,
 				6BF290B7280A00E200576C56 /* TDCActionDTO.swift in Sources */,
 				6B0F3FBD2807B321005D53C5 /* ImageService.swift in Sources */,
 				6BACD35927FBB67600FFDDC5 /* TDCEdgeConstaintDTO.swift in Sources */,
@@ -570,6 +730,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		6B6D687428404E1B00159021 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6BACD31527FA15D900FFDDC5 /* Thesis dynamic content */;
+			targetProxy = 6B6D687328404E1B00159021 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		6BACD32427FA15DB00FFDDC5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -582,6 +750,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6B6D687628404E1B00159021 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 24STU53D2Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Erokha.Thesis-dynamic-contentTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Thesis dynamic content.app/Thesis dynamic content";
+			};
+			name = Debug;
+		};
+		6B6D687728404E1B00159021 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 24STU53D2Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Erokha.Thesis-dynamic-contentTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Thesis dynamic content.app/Thesis dynamic content";
+			};
+			name = Release;
+		};
 		6BACD32827FA15DB00FFDDC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -619,6 +833,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -680,6 +895,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -755,6 +972,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6B6D687528404E1B00159021 /* Build configuration list for PBXNativeTarget "Thesis dynamic contentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B6D687628404E1B00159021 /* Debug */,
+				6B6D687728404E1B00159021 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6BACD31127FA15D900FFDDC5 /* Build configuration list for PBXProject "Thesis dynamic content" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

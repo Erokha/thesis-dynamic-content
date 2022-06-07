@@ -3,7 +3,7 @@ import UIKit
 
 public typealias TDCViewID = String
 
-class TDCBaseView: TDCViewProtocol {
+class TDCBaseView: TDCViewProtocol {    
 
     // MARK: - Public properties
     let id: TDCViewID
@@ -45,6 +45,23 @@ class TDCBaseView: TDCViewProtocol {
         self.subviews = dto.subviews.compactMap { TDCViewConverterSteward().covert(dto: $0) }
         
         self.subviews.forEach { $0.superview = self }
+        applyConfiguration()
+    }
+    
+    
+    init(id: TDCViewID,
+         subviews: [TDCViewProtocol],
+         superview: TDCViewProtocol? = nil,
+         configuration: TDCBaseViewConfiguration,
+         constraints: [TDCConstraint],
+         invoker: TDCActionInvokerProxy? = nil)
+    {
+        self.id = id
+        self.subviews = subviews
+        self.superview = superview
+        self.configuration = configuration
+        self.constraints = constraints
+        self.invoker = invoker
         applyConfiguration()
     }
     

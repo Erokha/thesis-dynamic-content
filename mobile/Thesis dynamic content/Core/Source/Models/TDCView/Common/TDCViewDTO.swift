@@ -9,11 +9,16 @@ struct TDCViewDTO: Decodable {
         case unknown
     }
     
-    let type: String
+    private let type: String
     let value: ViewType
     
     private enum CodingKeys: String, CodingKey {
         case type
+    }
+    
+    init(value: ViewType) {
+        self.value = value
+        self.type = "manualy_constructed_dto"
     }
     
     init(from decoder: Decoder) throws {
