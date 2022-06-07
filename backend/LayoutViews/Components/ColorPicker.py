@@ -11,6 +11,7 @@ class ColorPicker(Enum):
     mint = "#99FFCC"
     yellow = "##FFFF00"
     black = "#000000"
+    sky_blue = "#00BFFF"
 
     def get_color_hex(self) -> str:
         return self.value

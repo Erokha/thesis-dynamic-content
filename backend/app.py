@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import js_routine as js
 from LayoutViews.MainView import make_main_view
 from LayoutViews.DetailView import make_detail_view
@@ -14,7 +14,11 @@ def main_view():
 
 @app.route('/profile_view')
 def detail_view():
-    view = make_detail_view()
+    try:
+        is_friend = request.args.get("is_friend")
+    except Exception:
+        is_friend = False
+    view = make_detail_view(is_friend)
     return js.getJSON(view.serialize())
 
 @app.route('/example_view')

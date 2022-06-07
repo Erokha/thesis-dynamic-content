@@ -174,7 +174,7 @@ def __make_stack() -> TDCViewProtocol:
         ],
         configuration=TDCStackViewConfiguration(
             spacing=20,
-            direction=TDCStackViewDirection.horizontal
+            should_show_scroll=True
         ),
         subviews=[
             __make_icon(is_inside_stack=True),

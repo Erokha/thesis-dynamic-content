@@ -14,10 +14,13 @@ class TDCStackView: TDCViewProtocol {
     private lazy var stackView: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
         return view
     }()
     
-    var UIView: UIView { scrollView }
+    var UIView: UIView {
+        return scrollView
+    }
     
     var invoker: TDCActionInvokerProxy? {
         didSet {
@@ -76,16 +79,13 @@ class TDCStackView: TDCViewProtocol {
     }
     
     private func applyConfiguration() {
-        switch configuration.direction {
-        case .vertical:
-            stackView.axis = .vertical
-        case .horizontal:
-            stackView.axis = .horizontal
-        }
         
         if let spacing = configuration.spacing {
             stackView.spacing = CGFloat(spacing)
         }
+        
+        scrollView.showsVerticalScrollIndicator = configuration.shouldShowScroll
+        scrollView.showsHorizontalScrollIndicator = false
         
         stackView.alignment = .center
     }

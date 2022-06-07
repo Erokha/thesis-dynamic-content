@@ -280,7 +280,7 @@ def make_stack_view():
                 )
             )
         ],
-        configuration=TDCStackViewConfiguration(spacing=10, direction=TDCStackViewDirection.vertical),
+        configuration=TDCStackViewConfiguration(spacing=10, should_show_scroll=False),
         subviews=items
     )
     return stack_view

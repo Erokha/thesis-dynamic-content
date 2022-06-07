@@ -178,14 +178,14 @@ class TDCStackViewDirection(Enum):
 @dataclass
 class TDCStackViewConfiguration:
     spacing: typing.Optional[int]
-    direction: TDCStackViewDirection
+    should_show_scroll: typing.Optional[bool]
 
     def serialize(self) -> dict:
-        data = {
-            "direction": self.direction.value
-        }
+        data = {}
         if self.spacing:
             data["spacing"] = self.spacing
+        if self.should_show_scroll is not None:
+            data["should_show_scroll"] = self.should_show_scroll
         return data
 
 
